@@ -1,0 +1,38 @@
+
+\renewcommand\bibname{Bibliography}
+\titleformat{\chapter}[display]
+  {\normalfont\Large\bfseries}{\filright\chaptertitlename\ \thechapter}
+  {20pt}{\LARGE\filcenter}
+\setlength{\headheight}{25pt}
+
+\renewcommand{\headrulewidth}{5pt}
+\renewcommand{\footrulewidth}{5pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{darkbrown}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrule}{\hbox to\headwidth{\color{darkbrown}\leaders\hrule height \footrulewidth\hfill}}
+
+\fancyhf{}
+
+\fancyhead[L]{\thechapter}
+\fancyhead[R]{\nouppercase{\rightmark}}
+\fancyfoot[L]{RNSIT, Dept. of CSE}
+\fancyfoot[C]{2019-20}
+\fancyfoot[R]{Page \thepage}
+
+\renewcommand{\contentsname}{\centering Contents}
+
+\AtBeginDocument{%
+  \addtocontents{toc}{\protect\thispagestyle{empty}}%
+  \addtocontents{lof}{\protect\thispagestyle{empty}}%
+}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyhead[L]{}
+  \fancyhead[R]{}
+  \renewcommand{\headrulewidth}{0pt}% Line at the header 
+  \fancyfoot[L]{RNSIT, Dept. of CSE}
+  \fancyfoot[C]{2019-20}
+  \fancyfoot[R]{Page \thepage}
+}
+\setcounter{tocdepth}{2}
+\usetikzlibrary{calc}

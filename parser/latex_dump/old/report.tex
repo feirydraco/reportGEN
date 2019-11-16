@@ -21,7 +21,7 @@
             
 \usepackage[bookmarks, colorlinks=false, pdfborder={0 0 0}, 
             pdftitle={Report},
-            pdfauthor=Yash, 
+            pdfauthor=latexGEN, 
             pdfsubject=Web,
             pdfkeywords={Scripting, Python, Flask}]{hyperref}
 
@@ -75,24 +75,18 @@
   \fancyfoot[C]{2019-20}
   \fancyfoot[R]{Page \thepage}
 }
-
+\setcounter{tocdepth}{2}
 %Center tabularx horizontal rows
 
 
 \begin{document}
-
 \input{./title.tex}
 \input{./certificate.tex}
 \input{./abstract.tex}
 \input{./acknowledgements.tex}
-
-\setcounter{tocdepth}{2}
-
 \tableofcontents
 \listoffigures
-
 \pagebreak
-
 \pagenumbering{arabic}
 \pagestyle{fancy}
 \input{./chapter1.tex}

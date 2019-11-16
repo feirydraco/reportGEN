@@ -3,10 +3,12 @@ import os
 
 
 class Report():
-    def __init__(self, filename, author, subject, keywords):
+    def __init__(self, filename, subject, keywords):
         self.PATH = os.getcwd()
         self.name = filename
-        self.author = author
+
+        self.authors = "{latexGEN}"
+
         self.subject = subject
         self.keywords = "{{{}}}".format(", ".join(keywords))
         self.filepath = os.path.join(
@@ -14,24 +16,20 @@ class Report():
         with open(self.filepath, "w+") as file:
             file.write("\\documentclass[12pt, oneside]{report}")
             file.write("\n\\usepackage{color}")
+            file.write("\n\\usepackage[utf8]{inputenc}")
             file.write(""" \
             \n\\usepackage[bookmarks, colorlinks=false, pdfborder={{0 0 0}}, 
             pdftitle={{Report}}, 
             pdfauthor={}, 
-            pdfsubject={}, 
-            pdfkeywords={}]{{hyperref}}""".format(self.author, self.subject, self.keywords))
+            pdfsubject={{{}}}, 
+            pdfkeywords=[{}]{{hyperref}}""".format(self.authors, self.subject, self.keywords))
 
     def addpackage(self, package):
         """
-            package[0]: string, name of package. #Must be isntalled in TeX.#
-            package[1]: extra variables, (usually enclosed in [] brackets in latex)
+            package: string, name of package. #Must be isntalled in TeX.#
         """
         with open(self.filepath, "a") as file:
-            if type(package).__name__ == "str":
-                file.write("\n\\usepackage{{{}}}".format(package))
-            else:
-                file.write("\n\\usepackage[{}]{{{}}}".format(
-                    package[1], package[0]))
+            file.write("\n\\usepackage{{{}}}".format(package))
 
     def defineColor(self, colorname, RGB):
         """
@@ -77,65 +75,39 @@ class Report():
         with open(self.filepath, "a") as file:
             file.write("\n\\linespread{{{}}}".format(linespread))
 
+    def addTitlePage(self):
+        """
+        Creates the title page, expects members to be present in self.authors;
+        students: a list consisting of upto four strings for student names.
+        teachers: a list consisting of upto three strings for teacher names.
+        """
+        with open("./json_dump/title.json") as title:
+            data = json.load(title)
+            students = [x for x in (data['students']['members'])]
+            teachers = [x for x in (data['teachers']['members'])]
+            assert len(students) <= 4 and len(teachers) <= 3
+
     def setBaseStyle(self):
         """
         Adds headers and footers as required by RNSIT, as of 2019.
         """
         with open(self.filepath, "a") as file:
-            file.write("""\n
-\\renewcommand\\bibname{Bibliography}
-\\titleformat{\\chapter}[display]
-  {\\normalfont\\Large\\bfseries}{\\filright\\chaptertitlename\\ \\thechapter}
-  {20pt}{\LARGE\filcenter}
-\\setlength{\\headheight}{25pt}
-
-\\renewcommand{\\headrulewidth}{5pt}
-\\renewcommand{\\footrulewidth}{5pt}
-\\renewcommand{\\headrule}{\\hbox to\\headwidth{\\color{darkbrown}\\leaders\\hrule height \\headrulewidth\\hfill}}
-\\renewcommand{\\footrule}{\\hbox to\\headwidth{\\color{darkbrown}\\leaders\\hrule height \\footrulewidth\\hfill}}
-
-\\fancyhf{}
-
-\\fancyhead[L]{\\thechapter}
-\\fancyhead[R]{\\nouppercase{\\rightmark}}
-\\fancyfoot[L]{RNSIT, Dept. of CSE}
-\\fancyfoot[C]{2019-20}
-\\fancyfoot[R]{Page \\thepage}
-
-\\renewcommand{\\contentsname}{\\centering Contents}
-
-\\AtBeginDocument{%
-  \\addtocontents{toc}{\\protect\\thispagestyle{empty}}%
-  \\addtocontents{lof}{\\protect\\thispagestyle{empty}}%
-}
-
-\\fancypagestyle{plain}{%
-  \\fancyhf{}
-  \\fancyhead[L]{}
-  \\fancyhead[R]{}
-  \\renewcommand{\headrulewidth}{0pt}% Line at the header 
-  \\fancyfoot[L]{RNSIT, Dept. of CSE}
-  \\fancyfoot[C]{2019-20}
-  \\fancyfoot[R]{Page \\thepage}
-}
-""")
+            file.write("".join(open("./static/config.txt", "r")))
 
 
 if __name__ == "__main__":
-    report = Report("report", "Yash", "Web", ("Scripting", "Python", "Flask"))
+    report = Report("report", "Web", ("Scripting", "Python", "Flask"))
 
-    packages = ["xcolor", "tikz", "multicol", "titletoc", "ragged2e",
-                "fancyhdr", "url", "verbatim", "float", "titlesec", "listings", "mathptmx", (
-                    "inputenc", "utf8"),
-                "adjustbox", "titlesec", "tabularx"]
-
+    packages = json.load(open("./json_dump/packages.json"))['packages']
     report.add_packages(packages)
-    report.defineColor("darkbrown", (128, 0, 0))
-    report.defineColor("blue", (0, 51, 204))
-    report.defineColor("black", (0, 0, 0))
+
+    colors = json.load(open("./json_dump/colors.json"))['colors']
+    print(colors)
 
     report.setGeometry()
 
     report.set_linespread(1.3)
 
     report.setBaseStyle()
+
+    report.addTitlePage()
