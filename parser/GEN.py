@@ -1,5 +1,6 @@
 import json
 import os
+import re
 
 
 class Report():
@@ -9,6 +10,9 @@ class Report():
 
         self.authors = "{latexGEN}"
 
+        self.titlepath = os.path.join(
+            os.getcwd(), "latex_dump", "cover", "title.tex")
+        print(self.titlepath)
         self.subject = subject
         self.keywords = "{{{}}}".format(", ".join(keywords))
         self.filepath = os.path.join(
@@ -75,17 +79,58 @@ class Report():
         with open(self.filepath, "a") as file:
             file.write("\n\\linespread{{{}}}".format(linespread))
 
-    def addTitlePage(self):
+    def addTitlePage(self, students, teachers):
         """
         Creates the title page, expects members to be present in self.authors;
         students: a list consisting of upto four strings for student names.
         teachers: a list consisting of upto three strings for teacher names.
         """
-        with open("./json_dump/title.json") as title:
-            data = json.load(title)
-            students = [x for x in (data['students']['members'])]
-            teachers = [x for x in (data['teachers']['members'])]
-            assert len(students) <= 4 and len(teachers) <= 3
+        edit = None
+        with open("./static/titlepage.txt", "r") as titlepage:
+            with open(self.titlepath, "w+") as texfile:
+                for line in titlepage.readlines():
+                    if edit is not None:
+                        if edit == "student":
+                            texfile.write("\\begin{tabular}{l l}")
+                            for student in students['members']:
+                                print("Writing:",
+                                      student["Name"], student["USN"])
+                                texfile.write("\n\\textcolor{{blue}}{{\\textbf{{{}}}}} & \\textcolor{{blue}}{{\\hspace{{2.7cm}}\\textbf{{{}}}}}\\\ \
+".format(student["Name"], student["USN"]))
+                            edit = None
+
+                        elif edit == "teacher":
+                            texfile.write(
+                                "\\begin{tabularx}{\\linewidth}{" + "X " * len(teachers['members']) + "}")
+                            # patched to not write "&" because it messes it up.
+                            cur_t = 0
+                            for teacher in teachers['members']:
+                                print(
+                                    "Writing:", teacher["Name"], teacher["Designation"], teacher["Department"])
+                                texfile.write("\n\\textbf{{{}}}\\linebreak\\textbf{{{}}}\\linebreak\\textbf{{{}}}\\linebreak ".format(
+                                    teacher["Name"], teacher["Designation"], teacher["Department"]))
+                                if cur_t != len(teachers['members']) - 1:
+                                    texfile.write("& ")
+                                cur_t += 1
+                            edit = None
+                    else:
+                        if "\\begin{tabular}{l l}" in line:
+                            edit = "student"
+                            continue
+                        elif "\\begin{tabularx}{\\linewidth}{X X X}" in line:
+                            edit = "teacher"
+                            continue
+                        else:
+                            texfile.write(line)
+        with open(self.filepath, "a") as file:
+            file.write("\n\\input{./cover/title.tex}")
+
+    def mainContent(self, state):
+        with open(self.filepath, "a") as file:
+            if state:
+                file.write("\n\\begin{document}")
+            else:
+                file.write("\n\\end{document}")
 
     def setBaseStyle(self):
         """
@@ -93,6 +138,12 @@ class Report():
         """
         with open(self.filepath, "a") as file:
             file.write("".join(open("./static/config.txt", "r")))
+
+    def generate(self):
+        os.chdir("./latex_dump/")
+        print(os.getcwd())
+        print(os.listdir())
+        os.system("pdflatex {}.tex".format(self.name))
 
 
 if __name__ == "__main__":
@@ -103,11 +154,22 @@ if __name__ == "__main__":
 
     colors = json.load(open("./json_dump/colors.json"))['colors']
     print(colors)
+    for color in colors:
+        report.defineColor(color['colorname'], color['RGB'])
 
-    report.setGeometry()
+    report.setGeometry()  # left, right, bot, top (inches)
 
     report.set_linespread(1.3)
 
     report.setBaseStyle()
 
-    report.addTitlePage()
+    report.mainContent(True)
+
+    students = json.load(open("./json_dump/titlepage.json"))['students']
+    teachers = json.load(open("./json_dump/titlepage.json"))['teachers']
+
+    report.addTitlePage(students, teachers)
+
+    report.mainContent(False)
+
+    report.generate()

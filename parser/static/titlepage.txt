@@ -5,7 +5,7 @@
 \draw[line width = 2pt] ($(current page.north west) + (1.25in,-0.75in)$) rectangle ($(current page.south east) + (-1.0in, 0.75in)$);
 \end{tikzpicture} 
 \textup{\large {\textcolor{darkbrown}{\bf VISVESVARAYA TECHNOLOGICAL UNIVERSITY} \\ {\textcolor{darkbrown}{\bf BELGAUM-590014}}}}\\
-\includegraphics[width=0.12\textwidth]{./VTU.png}\\
+\includegraphics[width=0.12\textwidth]{./../static/media/VTU.png}\\
 \textup{\small {\textcolor{black}{\textbf {A DMBS Mini-Project Report} \\ {\textbf {On}}}}} \\
 \textup{\large {\textcolor{blue}{\textbf {\textit {``Student Information System"}}}}} \\[0.2in]
 \textup{{\textit {Submitted in partial fulfillment of the requirements for the 5th semester of} \\ {\textbf {\textit {Bachelor of Engineering in Computer Science and Engineering}} \\ \textit {of Visvesvaraya Technological University, Belgaum}}}}\\
@@ -14,34 +14,23 @@
 \textup{{Submitted by:}} 
 \break\break
 \begin{tabular}{l l}
-\textcolor{blue}{\textbf{Yash Vora}} & \textcolor{blue}{\hspace{2.7cm}\textbf{1RN16CS123}}\\
-\textcolor{blue}{\textbf{Vivek Kumar Singh}} & \textcolor{blue}{\hspace{2.7cm}\textbf{1RN16CS121}}\\
-\textcolor{blue}{\textbf{Vivek Kumar Singh}} & \textcolor{blue}{\hspace{2.7cm}\textbf{1RN16CS121}}\\
-\textcolor{blue}{\textbf{Vivek Kumar Singh}} & \textcolor{blue}{\hspace{2.7cm}\textbf{1RN16CS121}}\\
+
+
 \end{tabular}
+
 \vfill
+
 \textup{\normalsize{\textcolor{black}{ Under the guidance of:}}}\break\break
-
-% \begin{tabularx}{\linewidth}{X X X}
-% \textbf{Dr. Karanam Sunil Kumar}  & \textbf{Dr. Ramyashree} & \textbf{Dr. H.R. Shashidhara}\linebreak
-% \textbf{Assistant Professor} & \textbf{Assistant Professor} & \textbf{Assistant Professor}\linebreak
-% \textbf{Dept. of CSE} & \textbf{Dept. of CSE} & \textbf{Dept. of CSE}\linebreak
-% \end{tabularx}
-
 \renewcommand\tabularxcolumn[1]{>{\Centering}p{#1}}
-\begin{tabularx}{\linewidth}{X X X }
-\textbf{Name1}\linebreak\textbf{Designation}\linebreak\textbf{Department}\linebreak &
-\textbf{Name2}\linebreak\textbf{Designation}\linebreak\textbf{Department}\linebreak & 
-\textbf{Name3}\linebreak\textbf{Designation}\linebreak\textbf{Department}\linebreak 
+\begin{tabularx}{\linewidth}{X X X}
+
+
 \end{tabularx}
 \renewcommand\tabularxcolumn[1]{}
-
-\includegraphics[width=3cm, height=3cm]{./RNS_logo.png}
+\includegraphics[width=3cm, height=3cm]{../static/media/RNS_logo.png}
 
 \textup{\normalsize {\textcolor{darkbrown}{\bf Department of Computer Science and Engineering} \\ {\textcolor{darkbrown}{\bf \bf{RNS Institute of Technology}}}}}\\
 \textup{\small {\textcolor{darkbrown}{\bf Channasandra, Dr. Vishnuvardhan Road, Bengaluru-560 098}\\ \textbf {\textcolor{darkbrown}{2019-2020}}}}
-\vfill
-
 \end{center}
 \end{titlepage}
 \pagebreak
