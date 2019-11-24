@@ -29,28 +29,39 @@ def editCoverPage():
     if request.method == "POST":
         response = request.form.to_dict()
         print(response)
-        json_file['title']['subject']['topic'] = response['topic']
-        json_file['title']['subject']['title'] = response['title']
-        json_file['title']['subject']['semester'] = response['semester']
-        json_file['title']['students']['members'][0]['Name'] = response['name0']
-        json_file['title']['students']['members'][0]['USN'] = response['usn0']
-        json_file['title']['students']['members'][1]['Name'] = response['name1']
-        json_file['title']['students']['members'][1]['USN'] = response['usn1']
-        json_file['title']['students']['members'][2]['Name'] = response['name2']
-        json_file['title']['students']['members'][2]['USN'] = response['usn2']
-        json_file['title']['students']['members'][3]['Name'] = response['name3']
-        json_file['title']['students']['members'][3]['USN'] = response['usn3']
+        #Subject
+        if response['submit'] == 'title':
+            json_file['title']['subject']['topic'] = response['topic']
+            json_file['title']['subject']['title'] = response['title']
+            json_file['title']['subject']['semester'] = response['semester']
+            json_file['title']['students']['members'][0]['Name'] = response['name0']
+            json_file['title']['students']['members'][0]['USN'] = response['usn0']
+            json_file['title']['students']['members'][1]['Name'] = response['name1']
+            json_file['title']['students']['members'][1]['USN'] = response['usn1']
+            json_file['title']['students']['members'][2]['Name'] = response['name2']
+            json_file['title']['students']['members'][2]['USN'] = response['usn2']
+            json_file['title']['students']['members'][3]['Name'] = response['name3']
+            json_file['title']['students']['members'][3]['USN'] = response['usn3']
 
-        #Teachers
-        json_file['title']['teachers']['members'][0]['Name'] = response['n0']
-        json_file['title']['teachers']['members'][0]['Designation'] = response['d0']
-        json_file['title']['teachers']['members'][0]['Department'] = response['g0']
-        json_file['title']['teachers']['members'][1]['Name'] = response['n1']
-        json_file['title']['teachers']['members'][1]['Designation'] = response['d1']
-        json_file['title']['teachers']['members'][1]['Department'] = response['g1']
-        json_file['title']['teachers']['members'][2]['Name'] = response['n2']
-        json_file['title']['teachers']['members'][2]['Designation'] = response['d2']
-        json_file['title']['teachers']['members'][2]['Department'] = response['g2']
+            #Teachers
+            json_file['title']['teachers']['members'][0]['Name'] = response['n0']
+            json_file['title']['teachers']['members'][0]['Designation'] = response['d0']
+            json_file['title']['teachers']['members'][0]['Department'] = response['g0']
+            json_file['title']['teachers']['members'][1]['Name'] = response['n1']
+            json_file['title']['teachers']['members'][1]['Designation'] = response['d1']
+            json_file['title']['teachers']['members'][1]['Department'] = response['g1']
+            json_file['title']['teachers']['members'][2]['Name'] = response['n2']
+            json_file['title']['teachers']['members'][2]['Designation'] = response['d2']
+            json_file['title']['teachers']['members'][2]['Department'] = response['g2']
+            
+        elif response['submit'] == 'certificate':
+            json_file['certificate']['Guides'][0]['Name'] = response['n0']
+            json_file['certificate']['Guides'][0]['Designation'] = response['d0']
+            json_file['certificate']['Guides'][0]['Department'] = response['g0']
+            json_file['certificate']['Guides'][1]['Name'] = response['n1']
+            json_file['certificate']['Guides'][1]['Designation'] = response['d1']
+            json_file['certificate']['Guides'][1]['Department'] = response['g1']
+         
         json.dump(json_file, open("./parser/report.json", "w+"))
         
         return render_template("content.html", data=json_file)

@@ -120,7 +120,7 @@
 
 
                 <div class="form-group row">
-                    <input href="/content" class="btn btn-google btn-block" type="submit" value="Submit"><i
+                    <input href="/content" class="btn btn-google btn-block" type="submit" id="submit" name="submit" value="title"><i
                         class="fab fa-fw"></i></input>
                 </div>
             </form>
@@ -137,8 +137,40 @@
     <!-- Card Content - Collapse -->
     <div class="collapse" id="certificate">
         <div class="card-body">
-            This is a collapsable card example using Bootstrap's built in collapse functionality. <strong>Click on the
-                card header</strong> to see the card body collapse and expand!
+            <form action="/content" method="POST">
+                <div class="form-group row">
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control-plaintext" id="n0" name="n0" placeholder="Name"
+                                value="{{ data['certificate']['Guides'][0]['Name'] }}">
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control-plaintext" id="d0" name="d0" placeholder="Designation"
+                                value="{{ data['certificate']['Guides'][0]['Designation'] }}">
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control-plaintext" id="g0" name="g0" placeholder="Department"
+                                value="{{ data['certificate']['Guides'][0]['Department'] }}">
+                        </div>
+                    </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control-plaintext" id="n1" name="n1" placeholder="Name"
+                            value="{{ data['certificate']['Guides'][1]['Name'] }}">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control-plaintext" id="d1" name="d1" placeholder="Designation"
+                            value="{{ data['certificate']['Guides'][1]['Designation'] }}">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control-plaintext" id="g1" name="g1" placeholder="Department"
+                            value="{{ data['certificate']['Guides'][1]['Department'] }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                        <input href="/content" class="btn btn-google btn-block" type="submit" id="submit" name="submit" value="certificate"><i
+                            class="fab fa-fw"></i></input>
+                    </div>
+            </form>
         </div>
     </div>
 </div>

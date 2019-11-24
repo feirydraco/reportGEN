@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.11.13)  24 NOV 2019 18:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.11.13)  24 NOV 2019 21:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2889,6 +2889,60 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no : in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ' in font nullfont!
+Missing character: There is no N in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no ' in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no " in font nullfont!
+Missing character: There is no " in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ' in font nullfont!
+Missing character: There is no U in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no N in font nullfont!
+Missing character: There is no ' in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no " in font nullfont!
+Missing character: There is no " in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no e in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no x in font nullfont!
@@ -2964,33 +3018,6 @@ Missing character: There is no m in font nullfont!
 Missing character: There is no > in font nullfont!
 Missing character: There is no 1 in font nullfont!
 Missing character: There is no : in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no f in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no 2 in font nullfont!
-Missing character: There is no : in font nullfont!
-/home/yash/Documents/reportGEN/parser/GEN.py:136: You can't use `macro parameter character #' in horizontal mode.
-l.136                 if num == 2: #
-                                    second last
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-Missing character: There is no s in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no c in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no t in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no x in font nullfont!
@@ -2998,23 +3025,7 @@ Missing character: There is no t in font nullfont!
 Missing character: There is no + in font nullfont!
 Missing character: There is no = in font nullfont!
 Missing character: There is no " in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no " in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no : in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no + in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no " in font nullfont!
-Missing character: There is no , in font nullfont!
+Missing character: There is no ; in font nullfont!
 Missing character: There is no " in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no u in font nullfont!
@@ -3033,18 +3044,18 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no x in font nullfont!
 Missing character: There is no t in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 130--141
+Overfull \hbox (20.0pt too wide) in paragraph at lines 130--142
 []
  []
 
 
-/home/yash/Documents/reportGEN/parser/GEN.py:142: LaTeX Error: Missing \begin{document}.
+/home/yash/Documents/reportGEN/parser/GEN.py:143: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.142     d
+l.143     d
            ef addTitle(self):
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -3446,16 +3457,16 @@ Missing character: There is no r in font nullfont!
 Missing character: There is no m in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no t in font nullfont!
-/home/yash/Documents/reportGEN/parser/GEN.py:149: Missing $ inserted.
+/home/yash/Documents/reportGEN/parser/GEN.py:150: Missing $ inserted.
 <inserted text> 
                 $
-l.149 ...placeTag("<STUDENTS>", line, self.format_
+l.150 ...placeTag("<STUDENTS>", line, self.format_
                                                   vertical(self.data['title'...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-/home/yash/Documents/reportGEN/parser/GEN.py:154: Undefined control sequence.
-l.154             report.write("\n
+/home/yash/Documents/reportGEN/parser/GEN.py:155: Undefined control sequence.
+l.155             report.write("\n
                                   \\include{./title}\n")
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3463,8 +3474,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/home/yash/Documents/reportGEN/parser/GEN.py:154: Undefined control sequence.
-l.154 ...     report.write("\n\\include{./title}\n
+/home/yash/Documents/reportGEN/parser/GEN.py:155: Undefined control sequence.
+l.155 ...     report.write("\n\\include{./title}\n
                                                   ")
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3472,77 +3483,77 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/home/yash/Documents/reportGEN/parser/GEN.py:155: Missing $ inserted.
+/home/yash/Documents/reportGEN/parser/GEN.py:156: Missing $ inserted.
 <inserted text> 
                 $
-l.155 
+l.156 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 142--155
+Overfull \hbox (20.0pt too wide) in paragraph at lines 143--156
 []
  []
 
 
-Overfull \hbox (244.49107pt too wide) in paragraph at lines 142--155
+Overfull \hbox (244.49107pt too wide) in paragraph at lines 143--156
 []\OML/cmm/m/it/10 ertical\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 self:data\OT1/cmr/m/n/10 [[]\OML/cmm/m/it/10 title[]\OT1/cmr/m/n/10 ][[]\OML/cmm/m/it/10 students[]\OT1/cmr/m/n/10 ][[]\OML/cmm/m/it/10 members[]\OT1/cmr/m/n/10 ]))\OML/cmm/m/it/10 line \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (89.73743pt too wide) in paragraph at lines 142--155
+Overfull \hbox (89.73743pt too wide) in paragraph at lines 143--156
 \OML/cmm/m/it/10 self:replaceTag\OT1/cmr/m/n/10 (" \OML/cmm/m/it/10 <
  []
 
 
-Overfull \hbox (72.57072pt too wide) in paragraph at lines 142--155
+Overfull \hbox (72.57072pt too wide) in paragraph at lines 143--156
 \OML/cmm/m/it/10 TEACHERS >
  []
 
 
-Overfull \hbox (341.49315pt too wide) in paragraph at lines 142--155
+Overfull \hbox (341.49315pt too wide) in paragraph at lines 143--156
 \OT1/cmr/m/n/10 "\OML/cmm/m/it/10 ; line; self:format[]orizontal\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 self:data\OT1/cmr/m/n/10 [[]\OML/cmm/m/it/10 title[]\OT1/cmr/m/n/10 ][[]\OML/cmm/m/it/10 teachers[]\OT1/cmr/m/n/10 ][[]\OML/cmm/m/it/10 members[]\OT1/cmr/m/n/10 ]))\OML/cmm/m/it/10 line \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (89.73743pt too wide) in paragraph at lines 142--155
+Overfull \hbox (89.73743pt too wide) in paragraph at lines 143--156
 \OML/cmm/m/it/10 self:replaceTag\OT1/cmr/m/n/10 (" \OML/cmm/m/it/10 <
  []
 
 
-Overfull \hbox (98.38213pt too wide) in paragraph at lines 142--155
+Overfull \hbox (98.38213pt too wide) in paragraph at lines 143--156
 \OML/cmm/m/it/10 NUM[]EACHERS >
  []
 
 
-Overfull \hbox (55.24263pt too wide) in paragraph at lines 142--155
+Overfull \hbox (55.24263pt too wide) in paragraph at lines 143--156
 \OT1/cmr/m/n/10 "\OML/cmm/m/it/10 ; line; \OT1/cmr/m/n/10 "\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 " \OMS/cmsy/m/n/10 ^^C
  []
 
 
-Overfull \hbox (455.61737pt too wide) in paragraph at lines 142--155
+Overfull \hbox (455.61737pt too wide) in paragraph at lines 143--156
 \OML/cmm/m/it/10 len\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 self:data\OT1/cmr/m/n/10 [[]\OML/cmm/m/it/10 title[]\OT1/cmr/m/n/10 ][[]\OML/cmm/m/it/10 teachers[]\OT1/cmr/m/n/10 ][[]\OML/cmm/m/it/10 members[]\OT1/cmr/m/n/10 ]))\OML/cmm/m/it/10 titlepage:write\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 line\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 withopen\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 self:filepath; \OT1/cmr/m/n/10 "\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 ")\OML/cmm/m/it/10 asreport \OT1/cmr/m/n/10 :
  []
 
 
-Overfull \hbox (63.32143pt too wide) in paragraph at lines 142--155
+Overfull \hbox (63.32143pt too wide) in paragraph at lines 143--156
 \OML/cmm/m/it/10 report:write\OT1/cmr/m/n/10 ("[] 
  []
 
 
-Overfull \hbox (67.71223pt too wide) in paragraph at lines 142--155
+Overfull \hbox (67.71223pt too wide) in paragraph at lines 143--156
 \OML/cmm/m/it/10 include[]\OT1/cmr/m/n/10 ")$ 
  []
 
 
-/home/yash/Documents/reportGEN/parser/GEN.py:156: LaTeX Error: Missing \begin{document}.
+/home/yash/Documents/reportGEN/parser/GEN.py:157: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.156     d
+l.157     d
            ef addCertificate(self):
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -3899,75 +3910,75 @@ Missing character: There is no r in font nullfont!
 Missing character: There is no m in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no t in font nullfont!
-/home/yash/Documents/reportGEN/parser/GEN.py:162: Missing $ inserted.
+/home/yash/Documents/reportGEN/parser/GEN.py:163: Missing $ inserted.
 <inserted text> 
                 $
-l.162 ...replaceTag("<GUIDES>", line, self.format_
+l.163 ...replaceTag("<GUIDES>", line, self.format_
                                                   horizontal(self.data['cert...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-/home/yash/Documents/reportGEN/parser/GEN.py:165: Missing $ inserted.
+/home/yash/Documents/reportGEN/parser/GEN.py:166: Missing $ inserted.
 <inserted text> 
                 $
-l.165 
+l.166 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 156--165
+Overfull \hbox (20.0pt too wide) in paragraph at lines 157--166
 []
  []
 
 
-Overfull \hbox (227.9359pt too wide) in paragraph at lines 156--165
+Overfull \hbox (227.9359pt too wide) in paragraph at lines 157--166
 []\OML/cmm/m/it/10 orizontal\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 self:data\OT1/cmr/m/n/10 [[]\OML/cmm/m/it/10 certificate[]\OT1/cmr/m/n/10 ][[]\OML/cmm/m/it/10 Guides[]\OT1/cmr/m/n/10 ]))\OML/cmm/m/it/10 line \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (89.73743pt too wide) in paragraph at lines 156--165
+Overfull \hbox (89.73743pt too wide) in paragraph at lines 157--166
 \OML/cmm/m/it/10 self:replaceTag\OT1/cmr/m/n/10 (" \OML/cmm/m/it/10 <
  []
 
 
-Overfull \hbox (80.34804pt too wide) in paragraph at lines 156--165
+Overfull \hbox (80.34804pt too wide) in paragraph at lines 157--166
 \OML/cmm/m/it/10 NUM[]UIDES >
  []
 
 
-Overfull \hbox (55.24263pt too wide) in paragraph at lines 156--165
+Overfull \hbox (55.24263pt too wide) in paragraph at lines 157--166
 \OT1/cmr/m/n/10 "\OML/cmm/m/it/10 ; line; \OT1/cmr/m/n/10 "\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 " \OMS/cmsy/m/n/10 ^^C
  []
 
 
-Overfull \hbox (195.49416pt too wide) in paragraph at lines 156--165
+Overfull \hbox (195.49416pt too wide) in paragraph at lines 157--166
 \OML/cmm/m/it/10 len\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 self:data\OT1/cmr/m/n/10 [[]\OML/cmm/m/it/10 certificate[]\OT1/cmr/m/n/10 ][[]\OML/cmm/m/it/10 Guides[]\OT1/cmr/m/n/10 ]))\OML/cmm/m/it/10 line \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (89.73743pt too wide) in paragraph at lines 156--165
+Overfull \hbox (89.73743pt too wide) in paragraph at lines 157--166
 \OML/cmm/m/it/10 self:replaceTag\OT1/cmr/m/n/10 (" \OML/cmm/m/it/10 <
  []
 
 
-Overfull \hbox (71.9957pt too wide) in paragraph at lines 156--165
+Overfull \hbox (71.9957pt too wide) in paragraph at lines 157--166
 \OML/cmm/m/it/10 STUDENTS >
  []
 
 
-Overfull \hbox (326.04057pt too wide) in paragraph at lines 156--165
+Overfull \hbox (326.04057pt too wide) in paragraph at lines 157--166
 \OT1/cmr/m/n/10 "\OML/cmm/m/it/10 ; line; self:formatStudentData\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 self:data\OT1/cmr/m/n/10 [[]\OML/cmm/m/it/10 title[]\OT1/cmr/m/n/10 ][[]\OML/cmm/m/it/10 students[]\OT1/cmr/m/n/10 ][[]\OML/cmm/m/it/10 members[]\OT1/cmr/m/n/10 ]))$ 
  []
 
 
-/home/yash/Documents/reportGEN/parser/GEN.py:166: LaTeX Error: Missing \begin{document}.
+/home/yash/Documents/reportGEN/parser/GEN.py:167: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.166                     c
+l.167                     c
                            ertificatepage.write(line)
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -4049,8 +4060,8 @@ Missing character: There is no t in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no ( in font nullfont!
 Missing character: There is no " in font nullfont!
-/home/yash/Documents/reportGEN/parser/GEN.py:168: Undefined control sequence.
-l.168             report.write("\n
+/home/yash/Documents/reportGEN/parser/GEN.py:169: Undefined control sequence.
+l.169             report.write("\n
                                   \\include{./certificate}\n")
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4078,8 +4089,8 @@ Missing character: There is no c in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no e in font nullfont!
-/home/yash/Documents/reportGEN/parser/GEN.py:168: Undefined control sequence.
-l.168 ...eport.write("\n\\include{./certificate}\n
+/home/yash/Documents/reportGEN/parser/GEN.py:169: Undefined control sequence.
+l.169 ...eport.write("\n\\include{./certificate}\n
                                                   ")
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4090,18 +4101,18 @@ and I'll forget about whatever was undefined.
 Missing character: There is no " in font nullfont!
 Missing character: There is no ) in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 166--169
+Overfull \hbox (20.0pt too wide) in paragraph at lines 167--170
 []
  []
 
 
-/home/yash/Documents/reportGEN/parser/GEN.py:170: LaTeX Error: Missing \begin{document}.
+/home/yash/Documents/reportGEN/parser/GEN.py:171: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.170     d
+l.171     d
            ef generate(self):
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -4141,119 +4152,119 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no x in font nullfont!
-/home/yash/Documents/reportGEN/parser/GEN.py:171: Missing $ inserted.
+/home/yash/Documents/reportGEN/parser/GEN.py:172: Missing $ inserted.
 <inserted text> 
                 $
-l.171             os.chdir("./latex_
+l.172             os.chdir("./latex_
                                     dump/")
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-/home/yash/Documents/reportGEN/parser/GEN.py:173: You can't use `macro parameter character #' in math mode.
-l.173             #
+/home/yash/Documents/reportGEN/parser/GEN.py:174: You can't use `macro parameter character #' in math mode.
+l.174             #
                     os.system("rm ./../../static/report.pdf")
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/home/yash/Documents/reportGEN/parser/GEN.py:175: Missing $ inserted.
+/home/yash/Documents/reportGEN/parser/GEN.py:176: Missing $ inserted.
 <inserted text> 
                 $
-l.175 
+l.176 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 170--175
+Overfull \hbox (20.0pt too wide) in paragraph at lines 171--176
 []
  []
 
 
-Overfull \hbox (492.16603pt too wide) in paragraph at lines 170--175
+Overfull \hbox (492.16603pt too wide) in paragraph at lines 171--176
 []\OML/cmm/m/it/10 ump=\OT1/cmr/m/n/10 ")\OML/cmm/m/it/10 os:system\OT1/cmr/m/n/10 ("\OML/cmm/m/it/10 pdflatex[]:tex\OT1/cmr/m/n/10 "\OML/cmm/m/it/10 :format\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 self:name\OT1/cmr/m/n/10 ))\OML/cmm/m/it/10 os:system\OT1/cmr/m/n/10 ("\OML/cmm/m/it/10 rm:=::=::=static=report:pdf\OT1/cmr/m/n/10 ")\OML/cmm/m/it/10 os:system\OT1/cmr/m/n/10 ("\OML/cmm/m/it/10 cp \OMS/cmsy/m/n/10 ^^@
  []
 
 
-Overfull \hbox (164.94897pt too wide) in paragraph at lines 170--175
+Overfull \hbox (164.94897pt too wide) in paragraph at lines 171--176
 \OML/cmm/m/it/10 Rreport:pdf:=::=::=static=report:pdf\OT1/cmr/m/n/10 ")$ 
  []
 
 
-/home/yash/Documents/reportGEN/parser/GEN.py:177: LaTeX Error: Missing \begin{document}.
+/home/yash/Documents/reportGEN/parser/GEN.py:178: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.177 i
+l.178 i
        f __name__ == "__main__":
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 Missing character: There is no i in font nullfont!
 Missing character: There is no f in font nullfont!
-/home/yash/Documents/reportGEN/parser/GEN.py:177: Missing $ inserted.
+/home/yash/Documents/reportGEN/parser/GEN.py:178: Missing $ inserted.
 <inserted text> 
                 $
-l.177 if _
+l.178 if _
           _name__ == "__main__":
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-/home/yash/Documents/reportGEN/parser/GEN.py:177: Missing { inserted.
+/home/yash/Documents/reportGEN/parser/GEN.py:178: Missing { inserted.
 <to be read again> 
                    _
-l.177 if __
+l.178 if __
            name__ == "__main__":
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
 so that I will find a matching right brace soon.
 (If you're confused by all this, try typing `I}' now.)
 
-/home/yash/Documents/reportGEN/parser/GEN.py:177: Missing { inserted.
+/home/yash/Documents/reportGEN/parser/GEN.py:178: Missing { inserted.
 <to be read again> 
                    _
-l.177 if __name__
+l.178 if __name__
                   == "__main__":
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
 so that I will find a matching right brace soon.
 (If you're confused by all this, try typing `I}' now.)
 
-/home/yash/Documents/reportGEN/parser/GEN.py:177: Missing { inserted.
+/home/yash/Documents/reportGEN/parser/GEN.py:178: Missing { inserted.
 <to be read again> 
                    _
-l.177 if __name__ == "__
+l.178 if __name__ == "__
                         main__":
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
 so that I will find a matching right brace soon.
 (If you're confused by all this, try typing `I}' now.)
 
-/home/yash/Documents/reportGEN/parser/GEN.py:177: Missing { inserted.
+/home/yash/Documents/reportGEN/parser/GEN.py:178: Missing { inserted.
 <to be read again> 
                    _
-l.177 if __name__ == "__main__
+l.178 if __name__ == "__main__
                               ":
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
 so that I will find a matching right brace soon.
 (If you're confused by all this, try typing `I}' now.)
 
-/home/yash/Documents/reportGEN/parser/GEN.py:184: Missing $ inserted.
+/home/yash/Documents/reportGEN/parser/GEN.py:185: Missing $ inserted.
 <inserted text> 
                 $
-l.184 
+l.185 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-/home/yash/Documents/reportGEN/parser/GEN.py:184: Missing } inserted.
+/home/yash/Documents/reportGEN/parser/GEN.py:185: Missing } inserted.
 <inserted text> 
                 }
-l.184 
+l.185 
       
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -4261,10 +4272,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/home/yash/Documents/reportGEN/parser/GEN.py:184: Missing } inserted.
+/home/yash/Documents/reportGEN/parser/GEN.py:185: Missing } inserted.
 <inserted text> 
                 }
-l.184 
+l.185 
       
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -4272,10 +4283,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/home/yash/Documents/reportGEN/parser/GEN.py:184: Missing } inserted.
+/home/yash/Documents/reportGEN/parser/GEN.py:185: Missing } inserted.
 <inserted text> 
                 }
-l.184 
+l.185 
       
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -4283,10 +4294,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/home/yash/Documents/reportGEN/parser/GEN.py:184: Missing } inserted.
+/home/yash/Documents/reportGEN/parser/GEN.py:185: Missing } inserted.
 <inserted text> 
                 }
-l.184 
+l.185 
       
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -4295,12 +4306,12 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 177--184
+Overfull \hbox (20.0pt too wide) in paragraph at lines 178--185
 []
  []
 
 
-Overfull \hbox (639.24028pt too wide) in paragraph at lines 177--184
+Overfull \hbox (639.24028pt too wide) in paragraph at lines 178--185
 []$ 
  []
 

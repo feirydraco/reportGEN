@@ -131,11 +131,12 @@ class Report():
         text = ""
         num = len(members)
         for member in members:
+            if member['Name'] == "" or member['USN'] == "":
+                num -= 1
+                continue
             text += "\\textbf{{{}}} bearing USN \\textbf{{{}}}".format(member['Name'], member['USN'])
             if num > 1:
-                if num == 2: #second last
-                    text += " and "
-                else: text += ",  "
+                text += ";  "
                 num -= 1
         return text
 
