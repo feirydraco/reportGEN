@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow mb-4" style="width: 87%;">
+    <!-- Card Header - Accordion -->
+    <a href="#title" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true"
+        aria-controls="collapseCardExample">
+        <h6 class="m-0 font-weight-bold text-primary">Title</h6>
+    </a>
+    <!-- Card Content - Collapse -->
+    <div class="collapse" id="title">
+        <div class="card-body">
+            <form action="/content" method="POST">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><strong>Topic</strong></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control-plaintext" id="topic" name="topic"
+                            placeholder="Web Mini Project" value="{{ data['title']['subject']['topic'] }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><strong>Title</strong></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control-plaintext" id="title" name="title"
+                            placeholder="reportGEN" value="{{ data['title']['subject']['title'] }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><strong>Semester</strong></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control-plaintext" id="semester" name="semester"
+                            placeholder="7th" value="{{ data['title']['subject']['semester'] }}">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <input href="/content" class="btn btn-google btn-block" type="submit" value="Submit"><i
+                        class="fab fa-fw"></i></input>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow mb-4" style="width: 87%;">
+    <!-- Card Header - Accordion -->
+    <a href="#certificate" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true"
+        aria-controls="collapseCardExample">
+        <h6 class="m-0 font-weight-bold text-primary">Certificate</h6>
+    </a>
+    <!-- Card Content - Collapse -->
+    <div class="collapse" id="certificate">
+        <div class="card-body">
+            This is a collapsable card example using Bootstrap's built in collapse functionality. <strong>Click on the
+                card header</strong> to see the card body collapse and expand!
+        </div>
+    </div>
+</div>
+
+
+<div class="card shadow mb-4" style="width: 87%;">
+    <!-- Card Header - Accordion -->
+    <a href="#abstract" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true"
+        aria-controls="collapseCardExample">
+        <h6 class="m-0 font-weight-bold text-primary">Abstract</h6>
+    </a>
+    <!-- Card Content - Collapse -->
+    <div class="collapse" id="abstract">
+        <div class="card-body">
+            This is a collapsable card example using Bootstrap's built in collapse functionality. <strong>Click on the
+                card header</strong> to see the card body collapse and expand!
+        </div>
+    </div>
+</div>
+
+<div class="card shadow mb-4" style="width: 87%;">
+    <!-- Card Header - Accordion -->
+    <a href="#ack" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true"
+        aria-controls="collapseCardExample">
+        <h6 class="m-0 font-weight-bold text-primary">Acknolwdgements</h6>
+    </a>
+    <!-- Card Content - Collapse -->
+    <div class="collapse" id="ack">
+        <div class="card-body">
+            This is a collapsable card example using Bootstrap's built in collapse functionality. <strong>Click on the
+                card header</strong> to see the card body collapse and expand!
+        </div>
+    </div>
+</div>
+
+{% endblock content%}
