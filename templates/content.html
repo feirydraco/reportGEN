@@ -17,6 +17,7 @@
                             placeholder="Web Mini Project" value="{{ data['title']['subject']['topic'] }}">
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label"><strong>Title</strong></label>
                     <div class="col-sm-10">
@@ -31,6 +32,92 @@
                             placeholder="7th" value="{{ data['title']['subject']['semester'] }}">
                     </div>
                 </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control-plaintext" id="name0" name="name0" placeholder="NAME"
+                            value="{{ data['title']['students']['members'][0]['Name'] }}">
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control-plaintext" id="usn0" name="usn0" placeholder="USN"
+                            value="{{ data['title']['students']['members'][0]['USN'] }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control-plaintext" id="name1" name="name1" placeholder="NAME"
+                            value="{{ data['title']['students']['members'][1]['Name'] }}">
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control-plaintext" id="usn1" name="usn1" placeholder="USN"
+                            value="{{ data['title']['students']['members'][1]['USN'] }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control-plaintext" id="name2" name="name2" placeholder="NAME"
+                            value="{{ data['title']['students']['members'][2]['Name'] }}">
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control-plaintext" id="usn2" name="usn2" placeholder="USN"
+                            value="{{ data['title']['students']['members'][2]['USN'] }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control-plaintext" id="name3" name="name3" placeholder="NAME"
+                            value="{{ data['title']['students']['members'][3]['Name'] }}">
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control-plaintext" id="usn3" name="usn3" placeholder="USN"
+                            value="{{ data['title']['students']['members'][3]['USN'] }}">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control-plaintext" id="n0" name="n0" placeholder="Name"
+                            value="{{ data['title']['teachers']['members'][0]['Name'] }}">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control-plaintext" id="d0" name="d0" placeholder="Designation"
+                            value="{{ data['title']['teachers']['members'][0]['Designation'] }}">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control-plaintext" id="g0" name="g0" placeholder="Department"
+                            value="{{ data['title']['teachers']['members'][0]['Department'] }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control-plaintext" id="n1" name="n1" placeholder="Name"
+                            value="{{ data['title']['teachers']['members'][1]['Name'] }}">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control-plaintext" id="d1" name="d1" placeholder="Designation"
+                            value="{{ data['title']['teachers']['members'][1]['Designation'] }}">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control-plaintext" id="g1" name="g1" placeholder="Department"
+                            value="{{ data['title']['teachers']['members'][1]['Department'] }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control-plaintext" id="n2" name="n2" placeholder="Name"
+                            value="{{ data['title']['teachers']['members'][2]['Name'] }}">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control-plaintext" id="d2" name="d2" placeholder="Designation"
+                            value="{{ data['title']['teachers']['members'][2]['Designation'] }}">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control-plaintext" id="g2" name="g2" placeholder="Department"
+                            value="{{ data['title']['teachers']['members'][2]['Department'] }}">
+                    </div>
+                </div>
+
+
 
                 <div class="form-group row">
                     <input href="/content" class="btn btn-google btn-block" type="submit" value="Submit"><i
