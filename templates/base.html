@@ -98,7 +98,7 @@
 
       <div class="container-fluid"
         style="height: 100%; float: right; position: fixed; left: 50%; width: 50%;background-color: red;">
-        <iframe id="report" src="./static/report.pdf" height="100%" width="100%"></iframe>
+        <iframe id="report" src="{{url_for('static', filename='report.pdf')}}" height="100%" width="100%"></iframe>
 
       </div>
       <!-- /.container-fluid -->

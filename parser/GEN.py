@@ -2,6 +2,20 @@ import json
 import os
 
 
+def processText(text):
+    text = text.split(" ")
+    print("INT PROCESS TEXT")
+    for i in range(len(text)):
+        word = text[i]        
+        if word.startswith("*") and word.endswith("*"):  # BOLD
+            text[i] = "\\textbf{{{}}}".format(word[1:len(word) - 1])
+        if "\r\n" in word:
+            text[i] = text[i].replace("\r\n", " \\\\ ")
+
+    print(text)
+    return " ".join(text).strip()
+
+
 class Report():
 
     def __init__(self, filename, subject, keywords):
@@ -17,12 +31,17 @@ class Report():
             os.getcwd(), "latex_dump", "title.tex")
         self.certificate = os.path.join(
             os.getcwd(), "latex_dump", "certificate.tex")
+        self.ack = os.path.join(os.getcwd(), "latex_dump", "ack.tex")
         self.abstract = os.path.join(os.getcwd(), "latex_dump", "abstract.tex")
 
         self.students = []
 
         self.filepath = os.path.join(self.PATH, "latex_dump", filename + ".tex")
         self.data = json.load(open(os.path.join(os.getcwd(), "report.json"), "r"))
+
+        for member in self.data['title']['teachers']['members']:
+            if member["Name"] == "" and member["Designation"] == "" and member["Department"] == "":
+                self.data['title']['teachers']['members'].remove(member)
 
         with open(self.filepath, "w+") as file:
             file.write("\\documentclass[12pt, oneside]{report}")
@@ -44,8 +63,6 @@ class Report():
         with open(self.filepath, "a") as report:
             config = open("./static/config.txt", "r").read()
             report.write(config)
-        
-
 
     def addpackage(self, package):
         """
@@ -111,9 +128,11 @@ class Report():
 
     def format_horizontal(self, members):
         val = []
+
         num = len(members)
         
         for member in members:
+
             text = "\n\\textbf{{{}}}\\linebreak\\textbf{{{}}}\\linebreak\\textbf{{{}}}\\linebreak".format(member['Name'], member['Designation'], member['Department'])
             if num > 1:
                 text += " &"
@@ -131,14 +150,31 @@ class Report():
         text = ""
         num = len(members)
         for member in members:
-            if member['Name'] == "" or member['USN'] == "":
+            if member['Name'] == "" and member['USN'] == "":
                 num -= 1
                 continue
-            text += "\\textbf{{{}}} bearing USN \\textbf{{{}}}".format(member['Name'], member['USN'])
-            if num > 1:
-                text += ";  "
+            else:
                 num -= 1
+                text += "\\textbf{{{}}} bearing USN \\textbf{{{}}}".format(member['Name'], member['USN'])
+                if num > 0:
+                    text += ";  "
+                    num -= 1
         return text
+
+    def formatAck(self, data):
+        students = []
+        
+        for member in data:
+            if member['Name'] != "" and member['USN'] != "":
+                students.append(member)
+        # print(students)
+        n = len(students)
+        for i in range(4 - n):
+            students.append({'Name': "", 'USN': ""})
+        
+        return " & {{\\hfill}}\\textup{{{} {}}}\\\\ \n  & {{\\hfill}}\\textup{{{} {}}}\\\\ \n \\textup{{Date:}} & {{\\hfill}}\\textup{{{} {}}}\\\\\n\\textup{{Place:}} & {{\\hfill}}\\textup{{{} {}}}\\\\".format(students[3]['Name'], students[3]['USN'], students[2]['Name'], students[2]['USN'], students[1]['Name'], students[1]['USN'], students[0]['Name'], students[0]['USN'])
+
+
 
     def addTitle(self):
         with open("./static/titlepage.tex", "r") as title:
@@ -159,6 +195,7 @@ class Report():
             with open(self.certificate, "w+") as certificatepage:
                 for line in certificate:
                     line = self.replaceTag("<TITLE>", line, self.data['title']['subject']['title'])
+                    line = self.replaceTag("<TOPIC>", line, self.data['title']['subject']['topic'])
                     line = self.replaceTag("<SEMESTER>", line, self.data['title']['subject']['semester'])
                     line = self.replaceTag("<GUIDES>", line, self.format_horizontal(self.data['certificate']['Guides']))
                     line = self.replaceTag("<NUM_GUIDES>", line, "X " * len(self.data['certificate']['Guides']))
@@ -167,6 +204,16 @@ class Report():
                     certificatepage.write(line)
         with open(self.filepath, "a") as report:
             report.write("\n\\include{./certificate}\n")
+    
+    def addAck(self):
+        with open("./static/ack.tex", "r") as ack:
+            with open(self.ack, "w+") as ackpage:
+                for line in ack:
+                    line = self.replaceTag("<CONTENT>", line, processText(self.data['ack']['content']))
+                    line = self.replaceTag("<STUDENT>", line, self.formatAck(self.data['title']['students']['members']))
+                    ackpage.write(line)
+        with open(self.filepath, "a") as report:
+            report.write("\n\\include{./ack}\n")
 
     def generate(self):
             os.chdir("./latex_dump/")
@@ -180,6 +227,7 @@ if __name__ == "__main__":
     report.MainContent(True)
     report.addTitle()
     report.addCertificate()
+    report.addAck()
     report.MainContent(False)
     report.generate()
 
