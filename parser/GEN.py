@@ -1,19 +1,20 @@
 import json
 import os
 
-
 def processText(text):
-    text = text.split(" ")
-    print("INT PROCESS TEXT")
-    for i in range(len(text)):
-        word = text[i]        
-        if word.startswith("*") and word.endswith("*"):  # BOLD
-            text[i] = "\\textbf{{{}}}".format(word[1:len(word) - 1])
-        if "\r\n" in word:
-            text[i] = text[i].replace("\r\n", " \\\\ ")
-
-    print(text)
-    return " ".join(text).strip()
+    orig_text = text
+    start_marker = text.find("**")
+    while(text.find("**") != -1):
+        if start_marker != -1:
+            text = text.replace("**", "\\textbf{", 1)
+            end_marker = text.find("**", start_marker)
+            if end_marker == -1:
+                print("To be implemented.")
+            else:
+                text = text.replace("**", "}", 1)
+                orig_text = text 
+    # print(text)
+    return text
 
 
 class Report():
@@ -169,7 +170,7 @@ class Report():
                 students.append(member)
         # print(students)
         n = len(students)
-        for i in range(4 - n):
+        for _ in range(4 - n):
             students.append({'Name': "", 'USN': ""})
         
         return " & {{\\hfill}}\\textup{{{} {}}}\\\\ \n  & {{\\hfill}}\\textup{{{} {}}}\\\\ \n \\textup{{Date:}} & {{\\hfill}}\\textup{{{} {}}}\\\\\n\\textup{{Place:}} & {{\\hfill}}\\textup{{{} {}}}\\\\".format(students[3]['Name'], students[3]['USN'], students[2]['Name'], students[2]['USN'], students[1]['Name'], students[1]['USN'], students[0]['Name'], students[0]['USN'])
@@ -214,6 +215,15 @@ class Report():
                     ackpage.write(line)
         with open(self.filepath, "a") as report:
             report.write("\n\\include{./ack}\n")
+    
+    def addAbstract(self):
+        with open("./static/abstract.tex", "r") as abstract:
+            with open(self.abstract, "w+") as abstractpage:
+                for line in abstract:
+                    line = self.replaceTag("<CONTENT>", line, processText(self.data['abstract']['content']))
+                    abstractpage.write(line)
+        with open(self.filepath, "a") as report:
+            report.write("\n\\include{./abstract}\n")
 
     def generate(self):
             os.chdir("./latex_dump/")
@@ -228,6 +238,7 @@ if __name__ == "__main__":
     report.addTitle()
     report.addCertificate()
     report.addAck()
+    report.addAbstract()
     report.MainContent(False)
     report.generate()
 

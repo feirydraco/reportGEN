@@ -73,8 +73,9 @@ def editCoverPage(edit):
             json_file['certificate']['Guides'][1]['Designation'] = response['d1']
             json_file['certificate']['Guides'][1]['Department'] = response['g1']
         elif edit == "ack":
-            print(response['message'])
             json_file['ack']['content'] = response['message']
+        elif edit == "abstract":
+            json_file['abstract']['content'] = response['message']
     
     with open("./parser/report.json", "w") as f:
         json.dump(json_file, f)
