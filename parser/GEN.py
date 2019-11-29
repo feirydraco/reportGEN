@@ -3,6 +3,8 @@ import os
 
 
 def processText(text):
+    print("PROCCESSING")
+    
     start_marker = text.find("**")
     while(text.find("**") != -1):
         if start_marker != -1:
@@ -12,7 +14,38 @@ def processText(text):
                 print("To be implemented.")
             else:
                 text = text.replace("**", "}", 1)
-    # print(text)
+
+    start_marker = text.find("##")
+    while(text.find("##") != -1):
+        if start_marker != -1:
+            text = text.replace("##", "\n\\subsection{", 1)
+            end_marker = text.find("##", start_marker)
+            if end_marker != -1:
+                text = text.replace("##", "}\r\n", 1)
+
+    start_marker = text.find("#")
+    while(text.find("#") != -1):
+        if start_marker != -1:
+            text = text.replace("#", "\n\\section{", 1)
+            end_marker = text.find("#", start_marker)
+            if end_marker != -1:
+                text = text.replace("#", "}\r\n", 1)
+    
+
+    
+    start_marker = text.find("<LIST>")
+    while(text.find("<LIST>") != -1):
+        if start_marker != -1:
+            text = text.replace("~", "\\item")
+            text = text.replace("<LIST>", "\n\\begin{itemize}", 1)
+            end_marker = text.find("<LIST>", start_marker)
+            if end_marker != -1:
+                text = text.replace("<LIST>", "\n\\end{itemize}", 1)
+
+    
+
+            
+    print(text)
     return text
 
 
@@ -230,6 +263,8 @@ class Report():
         for chapter in self.data['chapters']:
             with open(os.path.join(os.getcwd(), "latex_dump", "chapter" + str(chapter['number']) + ".tex"), "w+") as chapterfile:
                 chapterfile.write("\\chapter{" + chapter['name'] + "}")
+                chapterfile.write(processText(chapter['content']))
+
             with open(self.filepath, "a") as report:
                 report.write("\n\\include{{./chapter{}}}".format(chapter['number']))
 

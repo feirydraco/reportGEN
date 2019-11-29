@@ -322,6 +322,9 @@ OUTPUT /home/yash/Documents/reportGEN/parser/latex_dump/report.lof
 OUTPUT /home/yash/Documents/reportGEN/parser/latex_dump/./chapter1.aux
 INPUT /home/yash/Documents/reportGEN/parser/latex_dump/./chapter1.tex
 INPUT /home/yash/Documents/reportGEN/parser/latex_dump/./chapter1.tex
+INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /home/yash/Documents/reportGEN/parser/latex_dump/report.aux
 INPUT /home/yash/Documents/reportGEN/parser/latex_dump/./title.aux
 INPUT /home/yash/Documents/reportGEN/parser/latex_dump/./title.aux
@@ -336,6 +339,7 @@ INPUT /home/yash/Documents/reportGEN/parser/latex_dump/./chapter1.aux
 INPUT /home/yash/Documents/reportGEN/parser/latex_dump/report.out
 INPUT /home/yash/Documents/reportGEN/parser/latex_dump/report.out
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
