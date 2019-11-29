@@ -1,7 +1,7 @@
 from flask import Flask, render_template, make_response, redirect, request
 import os
 import json
-from parser.GEN import Report
+
 
 app = Flask(__name__)
 
@@ -13,10 +13,41 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 def index():
     return render_template("index.html")
 
+@app.route("/chapters/<target>/<int:selector>", methods=["GET", "POST"])
+def chapters(target, selector):
+    if request.method == "GET":
+        if target == "remove":
+            json_file = json.load(open("./parser/report.json", "r+"))  
+            for chapter in json_file['chapters']:
+                if chapter['number'] == selector:
+                    json_file['chapters'].remove(chapter)
+            with open("./parser/report.json", "w") as f:
+                json.dump(json_file, f)
+            
+        json_file = json.load(open("./parser/report.json", "r"))
+        return render_template("chapters.html", data=json_file)  
+    if request.method == "POST":
+        print(target)
+        response = request.form.to_dict()
+        json_file = json.load(open("./parser/report.json", "r+"))
+        if target == "add":
+            n = len(json_file['chapters']) + 1
+            json_file['chapters'].append({"name": response['message'], "number": n, "content": []})
+        if target == "addcontent":
+            for chapter in json_file['chapters']:
+                if chapter['number'] == selector:
+                    chapter['content'] = response['message']
+
+        print(json_file['chapters'])   
+        with open("./parser/report.json", "w") as f:
+            json.dump(json_file, f)
+
+    json_file = json.load(open("./parser/report.json", "r"))
+    return render_template("chapters.html", data=json_file)
+
 
 @app.route("/generate")
 def home():
-
     os.chdir('parser')
     # os.system("python3 GEN.py >/dev/null 2>&1")
     os.system("python3 GEN.py")
@@ -29,7 +60,8 @@ def home():
 def editCoverPage(edit):
 
     if request.method == "GET":
-        pass
+        json_file = json.load(open("./parser/report.json", "r"))
+        return render_template("content.html", data=json_file)  
     if request.method == "POST":
         response = request.form.to_dict()
         json_file = json.load(open("./parser/report.json", "r+"))

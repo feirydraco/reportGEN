@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for chapter in data['chapters'] %}
+<div class="card shadow mb-4" style="width: 87%;">
+    <!-- Card Header - Dropdown -->
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold text-primary">{{ chapter['name'] }}</h6>
+        <div class="dropdown no-arrow">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                <div class="dropdown-header">Dropdown Header:</div>
+                <a class="dropdown-item" href="#">Move up</a>
+                <a class="dropdown-item" href="#">Move down</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/chapters/remove/{{ chapter['number'] }}">Remove Chapter</a>
+            </div>
+        </div>
+    </div>
+    <!-- Card Body -->
+    <div class="card-body">
+        <form action="/chapters/addcontent/{{ chapter['number'] }}" method="POST" id="chapter">
+            <div class="form-group row">
+                <textarea name="message" rows="6" cols="100">{{ chapter['content'] }}</textarea>
+            </div>
+
+            <div class="form-group row">
+                <input class="btn btn-google btn-block" type="submit" value="Add Chapter"><i
+                    class="fab fa-fw"></i></input>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endfor %}
+<div class="col-xl-12 col-md-6 mb-4" style="width: 87%;">
+    <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <form action="/chapters/add/0" method="POST" id="addchapter">
+                        <div class="form-group row">
+                            <input type="text" class="form-control-plaintext" id="message" name="message" placeholder="Chapter name goes here" value="" style="width: 100%;">
+                        </div>
+
+                        <div class="form-group row">
+                            <input class="btn btn-google btn-block" type="submit" value="Add Another Chapter"><i
+                                class="fab fa-fw"></i></input>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content%}

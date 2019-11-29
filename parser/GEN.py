@@ -1,8 +1,8 @@
 import json
 import os
 
+
 def processText(text):
-    orig_text = text
     start_marker = text.find("**")
     while(text.find("**") != -1):
         if start_marker != -1:
@@ -12,7 +12,6 @@ def processText(text):
                 print("To be implemented.")
             else:
                 text = text.replace("**", "}", 1)
-                orig_text = text 
     # print(text)
     return text
 
@@ -175,8 +174,6 @@ class Report():
         
         return " & {{\\hfill}}\\textup{{{} {}}}\\\\ \n  & {{\\hfill}}\\textup{{{} {}}}\\\\ \n \\textup{{Date:}} & {{\\hfill}}\\textup{{{} {}}}\\\\\n\\textup{{Place:}} & {{\\hfill}}\\textup{{{} {}}}\\\\".format(students[3]['Name'], students[3]['USN'], students[2]['Name'], students[2]['USN'], students[1]['Name'], students[1]['USN'], students[0]['Name'], students[0]['USN'])
 
-
-
     def addTitle(self):
         with open("./static/titlepage.tex", "r") as title:
             with open(self.title, "w+") as titlepage:
@@ -189,7 +186,7 @@ class Report():
                     line = self.replaceTag("<NUM_TEACHERS>", line, "X " * len(self.data['title']['teachers']['members']))
                     titlepage.write(line)
         with open(self.filepath, "a") as report:
-            report.write("\n\\include{./title}\n")
+            report.write("\n\\include{./title}")
 
     def addCertificate(self):
         with open("./static/certificate.tex", "r") as certificate:
@@ -204,7 +201,7 @@ class Report():
 
                     certificatepage.write(line)
         with open(self.filepath, "a") as report:
-            report.write("\n\\include{./certificate}\n")
+            report.write("\n\\include{./certificate}")
     
     def addAck(self):
         with open("./static/ack.tex", "r") as ack:
@@ -214,7 +211,7 @@ class Report():
                     line = self.replaceTag("<STUDENT>", line, self.formatAck(self.data['title']['students']['members']))
                     ackpage.write(line)
         with open(self.filepath, "a") as report:
-            report.write("\n\\include{./ack}\n")
+            report.write("\n\\include{./ack}")
     
     def addAbstract(self):
         with open("./static/abstract.tex", "r") as abstract:
@@ -223,7 +220,18 @@ class Report():
                     line = self.replaceTag("<CONTENT>", line, processText(self.data['abstract']['content']))
                     abstractpage.write(line)
         with open(self.filepath, "a") as report:
-            report.write("\n\\include{./abstract}\n")
+            report.write("\n\\include{./abstract}")
+
+    def beginChapters(self):
+        with open(self.filepath, "a") as report:
+                report.write("\n\\tableofcontents\n\\listoffigures\n\\pagebreak\n\\pagenumbering{arabic}\n\\pagestyle{fancy}")
+                    
+    def addChapters(self):
+        for chapter in self.data['chapters']:
+            with open(os.path.join(os.getcwd(), "latex_dump", "chapter" + str(chapter['number']) + ".tex"), "w+") as chapterfile:
+                chapterfile.write("\\chapter{" + chapter['name'] + "}")
+            with open(self.filepath, "a") as report:
+                report.write("\n\\include{{./chapter{}}}".format(chapter['number']))
 
     def generate(self):
             os.chdir("./latex_dump/")
@@ -239,6 +247,9 @@ if __name__ == "__main__":
     report.addCertificate()
     report.addAck()
     report.addAbstract()
+    report.beginChapters()
+    report.addChapters()
+
     report.MainContent(False)
     report.generate()
 
