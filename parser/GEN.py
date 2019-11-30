@@ -43,8 +43,23 @@ def processText(text):
                 text = text.replace("<LIST>", "\n\\end{itemize}", 1)
 
     
+    start_marker = text.find("<FIG>")
+    while(text.find("<FIG>") != -1):
+        if(text.find("<FIG>") != -1):
+            caption_start = start_marker + 6
+            caption_end = text.find("]", caption_start)
+            caption = text[caption_start:caption_end]
+            print(caption)
+            src_start = caption_end + 2
+            src_end = text.find("]", src_start)
+            src = text[src_start:src_end]
+            print(src)
+            print(os.listdir(os.path.join(os.getcwd(), "static", "media")))
+            text = text.replace("<FIG>", "\n\\begin{{figure}}[H]\n\\centering\n\\includegraphics[width=\\textwidth,height=\\textheight,keepaspectratio]{{../static/media/{}}}\n\\caption{{{}}}\n\\end{{figure}}".format(src, caption), 1)
+            text = text.replace("[{}]".format(caption), "")
+            text = text.replace("[{}]".format(src), "")
 
-            
+
     print(text)
     return text
 
