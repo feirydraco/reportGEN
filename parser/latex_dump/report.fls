@@ -310,12 +310,12 @@ OUTPUT /home/yash/Documents/reportGEN/parser/latex_dump/report.lof
 OUTPUT /home/yash/Documents/reportGEN/parser/latex_dump/./chapter1.aux
 INPUT /home/yash/Documents/reportGEN/parser/latex_dump/./chapter1.tex
 INPUT /home/yash/Documents/reportGEN/parser/latex_dump/./chapter1.tex
-INPUT /home/yash/Documents/reportGEN/parser/latex_dump/../static/media/cutecat.jpg
-INPUT ../static/media/cutecat.jpg
-INPUT ../static/media/cutecat.jpg
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /home/yash/Documents/reportGEN/parser/latex_dump/../static/media/cutecat.jpg
+INPUT ../static/media/cutecat.jpg
+INPUT ../static/media/cutecat.jpg
 OUTPUT /home/yash/Documents/reportGEN/parser/latex_dump/./chapter2.aux
 INPUT /home/yash/Documents/reportGEN/parser/latex_dump/./chapter2.tex
 INPUT /home/yash/Documents/reportGEN/parser/latex_dump/./chapter2.tex
