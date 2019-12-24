@@ -11,7 +11,7 @@
 \renewcommand{\footrule}{\hbox to\headwidth{\color{darkbrown}\leaders\hrule height \footrulewidth\hfill}}
 
 \fancyhf{}
-
+  
 \fancyhead[L]{\thechapter}
 \fancyhead[R]{\nouppercase{\rightmark}}
 \fancyfoot[L]{RNSIT, Dept. of CSE}
@@ -36,3 +36,7 @@
 }
 \setcounter{tocdepth}{2}
 \usetikzlibrary{calc}
+
+\lstset{%
+   breaklines=true
+} 

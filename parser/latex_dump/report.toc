@@ -1,6 +1,4 @@
 \thispagestyle {empty}
-\contentsline {chapter}{\numberline {1}5454}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Section}{1}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}Subsection}{1}{subsection.1.1.1}
-\contentsline {chapter}{\numberline {2}Test Chapter}{3}{chapter.2}
+\contentsline {chapter}{\numberline {1}Introduction to Database Management System}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Introduction to Web}{1}{section.1.1}
 \contentsfinish 

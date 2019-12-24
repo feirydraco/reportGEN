@@ -4,7 +4,12 @@ import os
 
 def processText(text):
     print("PROCCESSING")
-    
+
+    start_marker = text.find("<BR>")
+    while(text.find("<BR>") != -1):
+        if start_marker != -1:
+            text = text.replace("<BR>", "\\medskip", 1)
+
     start_marker = text.find("**")
     while(text.find("**") != -1):
         if start_marker != -1:
@@ -41,6 +46,18 @@ def processText(text):
             end_marker = text.find("<LIST>", start_marker)
             if end_marker != -1:
                 text = text.replace("<LIST>", "\n\\end{itemize}", 1)
+    
+
+    start_marker = text.find("<CODE>")
+    while(text.find("<CODE>") != -1):
+        if start_marker != -1:
+            text = text.replace("<CODE>", "\\begin{lstlisting}", 1)
+            end_marker = text.find("<CODE>", start_marker)
+            if end_marker == -1:
+                print("To be implemented.")
+            else:
+                text = text.replace("<CODE>", "\\end{lstlisting}", 1)
+
 
     
     start_marker = text.find("<FIG>")
@@ -55,7 +72,7 @@ def processText(text):
             src = text[src_start:src_end]
             print(src)
             print(os.listdir(os.path.join(os.getcwd(), "static", "media")))
-            text = text.replace("<FIG>", "\n\\begin{{figure}}[H]\n\\centering\n\\includegraphics[width=\\textwidth,height=\\textheight,keepaspectratio]{{../static/media/{}}}\n\\caption{{{}}}\n\\end{{figure}}".format(src, caption), 1)
+            text = text.replace("<FIG>", "\n\\begin{{figure}}[htpb]\n\\centering\n\\includegraphics[width=\\textwidth,height=\\textheight,keepaspectratio]{{../static/media/{}}}\n\\caption{{{}}}\n\\end{{figure}}".format(src, caption), 1)
             text = text.replace("[{}]".format(caption), "")
             text = text.replace("[{}]".format(src), "")
 
@@ -91,11 +108,11 @@ class Report():
             if member["Name"] == "" and member["Designation"] == "" and member["Department"] == "":
                 self.data['title']['teachers']['members'].remove(member)
 
-        with open(self.filepath, "w+") as file:
-            file.write("\\documentclass[12pt, oneside]{report}")
-            file.write("\n\\usepackage{color}")
-            file.write("\n\\usepackage[utf8]{inputenc}")
-            file.write(""" \
+        with open(self.filepath, "w+") as f:
+            f.write("\\documentclass[12pt, oneside]{report}")
+            f.write("\n\\usepackage{color}")
+            f.write("\n\\usepackage[utf8]{inputenc}")
+            f.write(""" \
             \n\\usepackage[bookmarks, colorlinks=false, pdfborder={{0 0 0}}, 
             pdftitle={{Report}}, 
             pdfauthor={}, 
@@ -116,8 +133,8 @@ class Report():
         """
             package: string, name of package. #Must be isntalled in TeX.#
         """
-        with open(self.filepath, "a") as file:
-            file.write("\n\\usepackage{{{}}}".format(package))
+        with open(self.filepath, "a") as f:
+            f.write("\n\\usepackage{{{}}}".format(package))
 
     def add_packages(self, packages):
             """
@@ -137,18 +154,18 @@ class Report():
             RGB: integer tuple values in form of (R, G, B)
         }
         """
-        with open(self.filepath, "a") as file:
+        with open(self.filepath, "a") as f:
             for i in range(len(self.data['modifications']['colors'])):
-                file.write("\n\\definecolor{{{}}}{{RGB}}{{{}, {}, {}}}".format(
+                f.write("\n\\definecolor{{{}}}{{RGB}}{{{}, {}, {}}}".format(
                     colors[i]["colorname"], colors[i]["RGB"][0], colors[i]["RGB"][1], colors[i]["RGB"][2]))
                     
     def setGeometry(self, lmargin=1.25, rmargin=1.0, top=0.75, bottom=0.75):
         """
         sets geometry of margins.
         """
-        with open(self.filepath, "a") as file:
-            file.write("\n\\usepackage{geometry}")
-            file.write("""\n\\geometry{{
+        with open(self.filepath, "a") as f:
+            f.write("\n\\usepackage{geometry}")
+            f.write("""\n\\geometry{{
             lmargin = {}in,
             rmargin = {}in,
             top = {}in, 
@@ -159,15 +176,15 @@ class Report():
         """
         linespread: not the same as MS WORD.
         """
-        with open(self.filepath, "a") as file:
-            file.write("\n\\linespread{{{}}}".format(linespread))
+        with open(self.filepath, "a") as f:
+            f.write("\n\\linespread{{{}}}".format(linespread))
     
     def MainContent(self, start):
-        with open(self.filepath, "a") as file:
+        with open(self.filepath, "a") as f:
             if start:
-                file.write("\n\\begin{document}")
+                f.write("\n\\begin{document}")
             else:
-                file.write("\n\\end{document}")
+                f.write("\n\\end{document}")
     
     def replaceTag(self, pattern, text, content):
         if text.find(pattern) != -1:
@@ -243,8 +260,8 @@ class Report():
                     line = self.replaceTag("<TITLE>", line, self.data['title']['subject']['title'])
                     line = self.replaceTag("<TOPIC>", line, self.data['title']['subject']['topic'])
                     line = self.replaceTag("<SEMESTER>", line, self.data['title']['subject']['semester'])
-                    line = self.replaceTag("<GUIDES>", line, self.format_horizontal(self.data['certificate']['Guides']))
-                    line = self.replaceTag("<NUM_GUIDES>", line, "X " * len(self.data['certificate']['Guides']))
+                    line = self.replaceTag("<GUIDES>", line, self.format_horizontal(self.data['certificate']['members']))
+                    line = self.replaceTag("<NUM_GUIDES>", line, "X " * len(self.data['certificate']['members']))
                     line = self.replaceTag("<STUDENTS>", line, self.formatStudentData(self.data['title']['students']['members']))
 
                     certificatepage.write(line)

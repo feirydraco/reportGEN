@@ -1,0 +1,52 @@
+
+
+body{
+    width:100vw;
+    height:100vh;
+}
+
+.nav-title {
+    font-family: Poppins !important;
+    font-size: 2em;
+    font-weight: 900;
+    font-style: italic;
+}
+
+.gen-btn {
+    font-family: Poppins !important;
+    font-size: 1.2em;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.welcome {
+    grid-column: 1;
+    position:relative;
+    width:60%;
+    height:50%;
+    left:20%;
+    top:30%;
+}
+
+.card-title {
+    font-family: Poppins;
+    font-size: 1.5em;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.card-text {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: Raleway;
+}
+
+.cont {
+    width:90%;
+    height:80%;
+    position:relative;
+    left:5%;
+    top:5%;
+    margin-top: 3em;
+}
+

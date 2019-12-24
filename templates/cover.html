@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card text-center cont" style="height: fit-content;">
+    <div class="card-header">
+        <ul class="nav nav-pills " role="tablist">
+            {% for item, val in coverpage.items(): %}
+            <li class="nav-item">
+                {% if tab == item: %}
+                <a class="nav-link active" data-toggle="tab" role="tab" href="#{{item}}">{{item.capitalize()}}</a>
+                {% else: %}
+                <a class="nav-link" data-toggle="tab" role="tab" href="#{{item}}">{{item.capitalize()}}</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="card-body tab-content">
+        {% if tab == "title": %}
+        <div id="title" role="tabpanel" class="tab-pane active">
+            {% else: %}
+            <div id="title" role="tabpanel" class="tab-pane">
+            {% endif %}
+            <hr>
+            Cover Details
+            <form action="/addtitle" method="get">
+                {% for elem, val_elem in coverpage['title']['subject'].items(): %}
+                <div class="form-group row">
+                    <label for="{{elem}}" class="col-sm-2 col-form-label">{{elem.capitalize()}}</label>
+                    <div class="col-sm-10">
+                        <input type="card-text" name="{{elem}}" id="{{elem}}" class="form-control" value="{{val_elem}}">
+                    </div>
+                </div>
+                {% endfor %}
+                <hr>
+                Student Details
+                <div class="form-group row" id="students">
+                    {% for student in coverpage['title']['students']['members']: %}
+                    <div class="card col-sm-3 text-center">
+                        <div class="card-body">
+                            <input type="card-text" name="sname{{loop.index0}}" id="name{{loop.index0}}"
+                                class="form-control" value="{{student['Name']}}">
+                            <hr>
+                            <input type="card-text" name="susn{{loop.index0}}" id="usn{{loop.index0}}"
+                                class="form-control" value="{{student['USN']}}">
+                            <hr>
+                            <a href="/delete/student/{{loop.index0}}" class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <hr>
+                Teacher Details
+                <div class="form-group row" id="teachers">
+                    {% for teacher in coverpage['title']['teachers']['members']: %}
+                    <div class="card col-sm-4 text-center">
+                        <div class="card-body">
+                            <input type="card-text" name="tname{{loop.index0}}" id="name{{loop.index0}}"
+                                class="form-control" value="{{teacher['Name']}}">
+                            <hr>
+                            <input type="card-text" name="tdesignation{{loop.index0}}" id="designation{{loop.index0}}"
+                                class="form-control" value="{{teacher['Designation']}}">
+                            <hr>
+                            <input type="card-text" name="tdepartment{{loop.index0}}" id="department{{loop.index0}}"
+                                class="form-control" value="{{teacher['Department']}}">
+                            <hr>
+                            <a href="/delete/teacher/{{loop.index0}}" class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <button type="submit" class="btn btn-block btn-success">Submit</button>
+            </form>
+            <hr>
+        </div>
+
+        {% if tab == "certificate": %}
+        <div id="certificate" role="tabpanel" class="tab-pane active">
+        {% else: %}
+        <div id="certificate" role="tabpanel" class="tab-pane">
+        {% endif %}
+            <form action="/addcertificate" method="get">
+                Guides
+                <div class="form-group row" id="teachers">
+                    {% for teacher in coverpage['certificate']['members']: %}
+                    <div class="card col-sm-6 text-center">
+                        <div class="card-body">
+                            <input type="card-text" name="tname{{loop.index0}}" id="name{{loop.index0}}"
+                                class="form-control" value="{{teacher['Name']}}">
+                            <hr>
+                            <input type="card-text" name="tdesignation{{loop.index0}}" id="designation{{loop.index0}}"
+                                class="form-control" value="{{teacher['Designation']}}">
+                            <hr>
+                            <input type="card-text" name="tdepartment{{loop.index0}}" id="department{{loop.index0}}"
+                                class="form-control" value="{{teacher['Department']}}">
+                            <hr>
+                            <a href="/delete/guide/{{loop.index0}}" class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <button type="submit" class="btn btn-block btn-success">Submit</button>
+            </form>
+        </div>
+
+        {% if tab == "acknowledgements": %}
+        <div id="acknowledgements" role="tabpanel" class="tab-pane active">
+        {% else: %}
+        <div id="acknowledgements" role="tabpanel" class="tab-pane">
+        {% endif %}
+            <form action="/addack" method="post">
+                <div class="form-group">
+                    <label>Enter acknowledgements here.</label>
+                    <textarea class="form-control" id="acknowledgements" name="acknowledgements" rows="22">{{ coverpage['acknowledgements']['content'] }}</textarea>
+                </div>
+                <button type="submit" class="btn btn-block btn-success">Submit</button>
+            </form>
+        </div>
+        {% if tab == "abstract": %}
+        <div id="abstract" role="tabpanel" class="tab-pane active">
+        {% else: %}
+        <div id="abstract" role="tabpanel" class="tab-pane">
+        {% endif %}
+        <form action="/addabstract" method="post">
+            <div class="form-group">
+                <label>Enter abstract here.</label>
+                <textarea class="form-control" id="abstract" name="abstract" rows="22">{{ coverpage['abstract']['content'] }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-block btn-success">Submit</button>
+        </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
