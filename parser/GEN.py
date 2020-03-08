@@ -309,6 +309,7 @@ class Report():
 
 if __name__ == "__main__":
     report = Report("report", "Web", ("Scripting", "Python", "Flask"))
+    
     report.MainContent(True)
     report.addTitle()
     report.addCertificate()
@@ -316,7 +317,7 @@ if __name__ == "__main__":
     report.addAbstract()
     report.beginChapters()
     report.addChapters()
-
     report.MainContent(False)
+
     report.generate()
 

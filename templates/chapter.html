@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block content %}
+<div class="cont">
+    <h1 style="text-align: center;">{{ chapter['name'] }}</h1>
+    <hr>
+    <div style="text-align: center;">
+        <a href="/addtext/chapter{{chapter['number']}}" type="button" class="btn btn-outline-info" name="addtext"
+            id="addtext">Add
+            Text</a>
+        <a href="/addimage/chapter{{chapter['number']}}" type="button" class="btn btn-outline-info" name="addimage"
+            id="addimage">Add
+            Image</a>
+        <a href="/addimage/chapter{{chapter['number']}}" type="button" class="btn btn-outline-info " name="addtable"
+            id="addtable">Add
+            Table</a>
+    </div>
+    <center>
+        <form action="/savechapter/{{chapter['number']}}" method="POST">
+            {% for item in chapter['content']: %}
+            {% if item['type'] == 'text' %}
+            <br>
+            <textarea class="form-control" id="{{item['id']}}" name="{{item['id']}}" rows="2"
+                style="margin-bottom: 1em;">{{item['content']}}</textarea>
+            <a href="/deletecontent/{{chapter['number']}}/{{item['id']}}"
+                class="btn btn-block btn-outline-danger">Delete
+                Section</a>
+            {% endif %}
+            {% endfor %}
+            <button type="submit" class="btn btn-outline-success btn-lg btn-block" style="width: 15vw;">Save
+                Contents</button>
+        </form>
+        <br>
+
+        <hr> <a name="chapternum" id="chapternum" href="/deletechapter/{{chapter['number']}}"
+            class="btn btn-outline-danger btn-lg btn-block" style="width: 15vw; text-align: center;">Delete Chapter</a>
+    </center>
+</div>
+{% endblock content %}

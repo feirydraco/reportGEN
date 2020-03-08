@@ -1,38 +1,22 @@
 {% extends "base.html" %} {% block content %}
+
 <div class="cont">
-  <div class="row">
-    <div class="col-4">
-      <div class="list-group" id="list-tab" role="tablist">
-        {% for chapter in chapters: %}
-        <a
-          class="list-group-item list-group-item-action"
-          id="list-chapter{{chapter['number']}}"
-          data-toggle="list"
-          href="#chapter{{chapter['number']}}"
-          role="tab"
-          >{{chapter['name']}}</a
-        >
-        {% endfor %}
-      </div>
+  <center>
+    <div class="list-group" style="text-align: center; width: 20vw;">
+      {% for chapter in chapters: %}
+      <a href="/chapter/{{chapter['number']}}" class="list-group-item list-group-item-action">
+        {{ chapter['name'] }}
+      </a>
+      {% endfor %}
     </div>
-    <div class="col-8">
-      <div class="tab-content" id="nav-tabContent">
-        {% for chapter in chapters: %}
-        <div
-          class="tab-pane fade show"
-          id="chapter{{chapter['number']}}"
-          role="tabpanel"
-        >
-          <div class="jumbotron">
-            <h1 class="display-4">{{chapter['name']}}</h1>
-            <p class="lead"></p>
-            <hr class="my-4" />
-            <button type="button" class="btn btn-outline-danger btn-lg btn-block">Save</button> 
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
+
+    <hr style="width: 20vw;">
+    <form action="/addchapter">
+      <input type="text" class="form-control" name="newchapter" id="newchapter" placeholder="Enter text here" required
+        style="width: 15vw; text-align: center;">
+      <button type="submit" class="btn btn-outline-warning btn-block" style="margin-top: 1em; width: 15vw;">Add
+        Chapter</button>
+    </form>
 </div>
+</center>
 {% endblock content %}

@@ -54,6 +54,7 @@ def home():
     json_file = json.load(open("./parser/report.json", "r"))
     return render_template("content.html", data=json_file)
 
+
 @app.route("/add_student")
 def add_student():
     json_file = json.load(open("./parser/report.json", "r"))
@@ -63,6 +64,7 @@ def add_student():
         with open("./parser/report.json", "w") as f:
             json.dump(json_file, f)
     return redirect(url_for('/cover'))
+
 
 @app.route("/delete/<string:instance>/<int:pos>")
 def delete(instance, pos):
@@ -85,10 +87,106 @@ def delete(instance, pos):
     coverpage = json.load(open("./parser/report.json", "r"))['coverpage']
     return render_template("cover.html", coverpage=coverpage, tab=tab)
 
-@app.route("/chapter")
+
+@app.route("/chapters")
 def chapters():
     chapters = json.load(open("./parser/report.json", "r"))['chapters']
     return render_template("chapters.html", chapters=chapters)
+
+
+@app.route("/chapter/<int:chapnum>")
+def chapter(chapnum):
+    chapter = json.load(open("./parser/report.json", "r")
+                        )['chapters'][chapnum - 1]
+    return render_template("chapter.html", chapter=chapter)
+
+
+@app.route("/addchapter")
+def add_chapter():
+    json_file = json.load(open("./parser/report.json", "r"))
+    num_of_chapters = len(json_file['chapters'])
+
+    json_file['chapters'].append({
+        'name': request.args.get('newchapter'),
+        'number': num_of_chapters + 1,
+        'content': []
+    })
+    with open("./parser/report.json", "w") as f:
+        json.dump(json_file, f)
+
+    return redirect(url_for("chapters"))
+
+
+@app.route("/deletechapter/<int:chapternum>")
+def delete_chapter(chapternum):
+    x = 0
+    json_file = json.load(open("./parser/report.json", "r"))
+
+    for chapter in json_file['chapters']:
+        if chapter['number'] == chapternum:
+            x = chapter['number']
+            json_file['chapters'].remove(chapter)
+            break
+
+    for chapter in json_file['chapters']:
+        if chapter['number'] > x:
+            chapter['number'] -= 1
+
+    with open("./parser/report.json", "w") as f:
+        json.dump(json_file, f)
+
+    return redirect(url_for("chapters"))
+
+
+@app.route("/deletecontent/<int:chapternum>/<int:contentnum>")
+def delete_content(chapternum, contentnum):
+    json_file = json.load(open("./parser/report.json", "r"))
+    for part in json_file['chapters'][chapternum - 1]['content']:
+        if part['id'] == contentnum:
+            json_file['chapters'][chapternum - 1]['content'].remove(part)
+    i = 1
+    for part in json_file['chapters'][chapternum - 1]['content']:
+        part['id'] = i
+        i += 1
+
+    with open("./parser/report.json", "w") as f:
+        json.dump(json_file, f)
+
+    return redirect("/chapter/{}".format(chapternum))
+
+
+@app.route("/savechapter/<int:chapternum>", methods=["POST"])
+def save_chapter(chapternum):
+    print(request.get_json())
+    for inp, val in request.form.to_dict().items():
+        print(inp, val)
+
+    return redirect("/chapter/{}".format(chapternum))
+
+
+@app.route("/addtext/chapter<int:chapternum>")
+def addtext(chapternum):
+    json_file = json.load(open("./parser/report.json", "r"))
+    json_file['chapters'][chapternum - 1]['content'].append({'type': 'text', 'id': len(
+        json_file['chapters'][chapternum - 1]['content']) + 1, 'content': ''})
+
+    with open("./parser/report.json", "w") as f:
+        json.dump(json_file, f)
+
+    return redirect("/chapter/{}".format(chapternum))
+
+
+@app.route("/addimage/<int:chapternum>")
+def addimage(chapternum):
+    pass
+    return redirect('/chapter/{}'.format(chapternum))
+
+
+@app.route("/addtable/<int:chapternum>")
+def addtable(chapternum):
+    pass
+    return redirect('/chapter/{}'.format(chapternum))
+
 
 @app.route("/cover")
 def coverpage():
@@ -116,6 +214,7 @@ def addack():
     with open("./parser/report.json", "w") as f:
         json.dump(json_file, f)
     return render_template("cover.html", coverpage=coverpage, tab="acknowledgements")
+
 
 @app.route("/addcertificate", methods=["POST"])
 def addCertificate():
