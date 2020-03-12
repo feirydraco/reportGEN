@@ -23,13 +23,25 @@
             <a href="/deletecontent/{{chapter['number']}}/{{item['id']}}"
                 class="btn btn-block btn-outline-danger">Delete
                 Section</a>
+            {% elif item['type'] == 'image': %}
+            <br>
+            <input type="text" class="form-control" name="{{item['id']}}" id="{{item['id']}}"
+                placeholder="Enter image name here." value="{{item['content']}}" required
+                style="width: 15vw; text-align: center;">
+
+            <img src="{{ url_for('static', filename=item['content']) }}" alt="Error displaying image." width="50%"
+                height="100%" style="margin: 1em;">
+
+            <a href="/deletecontent/{{chapter['number']}}/{{item['id']}}"
+                class="btn btn-block btn-outline-danger">Delete
+                Section</a>
+
             {% endif %}
             {% endfor %}
+            <br>
             <button type="submit" class="btn btn-outline-success btn-lg btn-block" style="width: 15vw;">Save
                 Contents</button>
         </form>
-        <br>
-
         <hr> <a name="chapternum" id="chapternum" href="/deletechapter/{{chapter['number']}}"
             class="btn btn-outline-danger btn-lg btn-block" style="width: 15vw; text-align: center;">Delete Chapter</a>
     </center>

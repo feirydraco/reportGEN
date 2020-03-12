@@ -5,6 +5,7 @@ import json
 app = Flask(__name__)
 
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+app.config['UPLOAD_FOLDER'] = './static'
 
 
 @app.route("/")
@@ -157,9 +158,14 @@ def delete_content(chapternum, contentnum):
 
 @app.route("/savechapter/<int:chapternum>", methods=["POST"])
 def save_chapter(chapternum):
-    print(request.get_json())
+    json_file = json.load(open("./parser/report.json", "r"))
+    print(request.form.to_dict().items())
     for inp, val in request.form.to_dict().items():
-        print(inp, val)
+        json_file['chapters'][chapternum -
+                              1]['content'][int(inp) - 1]['content'] = val
+
+    with open("./parser/report.json", "w") as f:
+        json.dump(json_file, f)
 
     return redirect("/chapter/{}".format(chapternum))
 
@@ -176,10 +182,17 @@ def addtext(chapternum):
     return redirect("/chapter/{}".format(chapternum))
 
 
-@app.route("/addimage/<int:chapternum>")
+@app.route("/addimage/chapter<int:chapternum>")
 def addimage(chapternum):
-    pass
-    return redirect('/chapter/{}'.format(chapternum))
+    json_file = json.load(open("./parser/report.json", "r"))
+
+    json_file['chapters'][chapternum - 1]['content'].append({'type': 'image', 'id': len(
+        json_file['chapters'][chapternum - 1]['content']) + 1, 'content': ''})
+
+    with open("./parser/report.json", "w") as f:
+        json.dump(json_file, f)
+
+    return redirect("/chapter/{}".format(chapternum))
 
 
 @app.route("/addtable/<int:chapternum>")
