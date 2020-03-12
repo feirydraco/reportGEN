@@ -53,7 +53,7 @@ def home():
     os.system("python3 GEN.py")
     os.chdir('..')
     json_file = json.load(open("./parser/report.json", "r"))
-    return render_template("content.html", data=json_file)
+    return render_template("index.html", data=json_file)
 
 
 @app.route("/add_student")

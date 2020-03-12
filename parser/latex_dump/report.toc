@@ -1,4 +1,2 @@
 \thispagestyle {empty}
-\contentsline {chapter}{\numberline {1}Introduction to Database Management System}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Introduction to Web}{1}{section.1.1}
 \contentsfinish 
