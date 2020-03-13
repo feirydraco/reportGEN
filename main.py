@@ -259,7 +259,7 @@ def addack():
     return render_template("cover.html", coverpage=coverpage, tab="acknowledgements")
 
 
-@app.route("/addcertificate", methods=["POST"])
+@app.route("/addcertificate", methods=["GET"])
 def addCertificate():
     json_file = json.load(open("./parser/report.json", "r"))
     coverpage = json_file['coverpage']
