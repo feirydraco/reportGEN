@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block content %}
+<div class="cont">
+    <center>
+        {% for ref in refs %}
+        <strong>{{ref['caption']}}: </strong><a href="http://{{ref['link']}}"
+            style="display: inline;">{{ref['link']}}</a>
+        <a href="/deleteref/{{ref['caption']}}" class="btn btn-block btn-outline-danger"
+            style="display: inline;">Delete</a>
+        <hr>
+        {% endfor %}
+        <form action="/addref" method="POST">
+            <input type="text" class="form-control" name="caption" id="caption" placeholder="Enter caption here"
+                required style="width: 15vw; text-align: center; display: inline;">
+            <input type="text" class="form-control" name="link" id="link" placeholder="Enter link here" required
+                style="width: 15vw; text-align: center; display: inline;">
+            <button type="submit" class="btn btn-outline-warning btn-block" style="margin-top: 1em; width: 15vw;">Add
+                Reference</button>
+        </form>
+</div>
+</center>
+{% endblock content %}

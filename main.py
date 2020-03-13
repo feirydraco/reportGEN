@@ -13,6 +13,36 @@ app.config['UPLOAD_FOLDER'] = './static'
 def index():
     return render_template("index.html")
 
+
+@app.route("/ref")
+def bibliography():
+    references = json.load(open("./parser/report.json", "r"))['ref']
+    return render_template("ref.html", refs=references)
+
+
+@app.route("/addref", methods=["POST"])
+def addref():
+    data = request.form.to_dict()
+    json_file = json.load(open("./parser/report.json", "r"))
+
+    json_file['ref'].append(
+        {"caption": data['caption'], "link": data['link']})
+
+    with open("./parser/report.json", "w") as f:
+        json.dump(json_file, f)
+    return redirect(url_for("bibliography"))
+
+
+@app.route("/deleteref/<string:caption>")
+def deleteref(caption):
+    json_file = json.load(open("./parser/report.json", "r"))
+    for item in json_file['ref']:
+        if item['caption'] == caption:
+            json_file['ref'].remove(item)
+    with open("./parser/report.json", "w") as f:
+        json.dump(json_file, f)
+    return redirect(url_for("bibliography"))
+
 # @app.route("/chapters/<target>/<int:selector>", methods=["GET", "POST"])
 # def chapters(target, selector):
 #     if request.method == "GET":

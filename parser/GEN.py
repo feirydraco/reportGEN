@@ -61,18 +61,14 @@ def processText(text):
             caption_start = start_marker + 6
             caption_end = text.find("]", caption_start)
             caption = text[caption_start:caption_end]
-            print(caption)
             src_start = caption_end + 2
             src_end = text.find("]", src_start)
             src = text[src_start:src_end]
-            print(src)
-            print(os.listdir(os.path.join(os.getcwd(), "static", "media")))
             text = text.replace(
                 "<FIG>", "\n\\begin{{figure}}[htpb]\n\\centering\n\\includegraphics[width=\\textwidth,height=\\textheight,keepaspectratio]{{../static/media/{}}}\n\\caption{{{}}}\n\\end{{figure}}".format(src, caption), 1)
             text = text.replace("[{}]".format(caption), "")
             text = text.replace("[{}]".format(src), "")
 
-    print(text)
     return text
 
 
@@ -182,6 +178,7 @@ class Report():
             if start:
                 f.write("\n\\begin{document}")
             else:
+                f.write("\n\\include{./ref}")
                 f.write("\n\\end{document}")
 
     def replaceTag(self, pattern, text, content):
@@ -308,15 +305,28 @@ class Report():
             report.write(
                 "\n\\tableofcontents\n\\listoffigures\n\\pagebreak\n\\pagenumbering{arabic}\n\\pagestyle{fancy}")
 
-    # def addChapters(self):
-    #     for chapter in self.data['chapters']:
-    #         with open(os.path.join(os.getcwd(), "latex_dump", "chapter" + str(chapter['number']) + ".tex"), "w+") as chapterfile:
-    #             chapterfile.write("\\chapter{" + chapter['name'] + "}")
-    #             chapterfile.write(processText(chapter['content']))
+    def addChapters(self):
+        for chapter in self.data['chapters']:
+            with open(os.path.join(os.getcwd(), "latex_dump", "chapter" + str(chapter['number']) + ".tex"), "w+") as chapterfile:
+                chapterfile.write("\\chapter{" + chapter['name'] + "}")
+                for part in chapter['content']:
+                    if part['type'] == 'text':
+                        chapterfile.write(processText(part['content']))
+                    elif part['type'] == 'image':
+                        chapterfile.write("\n\\begin{{figure}}[htpb]\n\\centering\n\\includegraphics[width=\\textwidth,height=\\textheight,keepaspectratio]{{../../static/{}}}\n\\caption{{{}}}\n\\end{{figure}}".format(
+                            part['content'], part['content']))
 
-    #         with open(self.filepath, "a") as report:
-    #             report.write(
-    #                 "\n\\include{{./chapter{}}}".format(chapter['number']))
+            with open(self.filepath, "a") as report:
+                report.write(
+                    "\n\\include{{./chapter{}}}".format(chapter['number']))
+
+    def addBib(self):
+        with open(os.path.join(os.getcwd(), "latex_dump", "ref.tex"), "w+") as references:
+            references.write("\n\\begin{thebibliography}{99}")
+            for ref in self.data['ref']:
+                references.write(
+                    "\n\\bibitem{{}}\\textbf{{{}}}: \\url{{http://{}}}".format(ref['caption'], ref['link']))
+            references.write("\n\\end{thebibliography}")
 
     def generate(self):
         os.chdir("./latex_dump/")
@@ -335,7 +345,7 @@ if __name__ == "__main__":
     report.addAck()
     report.addAbstract()
     report.beginChapters()
-    # report.addChapters()
+    report.addChapters()
     report.MainContent(False)
-
+    report.addBib()
     report.generate()

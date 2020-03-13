@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.3.12)  12 MAR 2020 13:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.3.12)  13 MAR 2020 10:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -744,7 +744,8 @@ Package: geometry 2018/04/16 v5.8 Page Geometry
 (/usr/local/texlive/2019basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/lib
 raries/tikzlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2019/08/03 v3.1.4b (3.1.4b)
-) (./report.aux (./title.aux) (./certificate.aux) (./ack.aux) (./abstract.aux))
+) (./report.aux (./title.aux) (./certificate.aux) (./ack.aux) (./abstract.aux) 
+(./chapter1.aux) (./ref.aux))
 \openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
@@ -859,7 +860,7 @@ LaTeX Info: Redefining \selectfont on input line 76.
 (./title.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 7.
-<./../static/media/VTU.png, id=7, 706.64pt x 1007.765pt>
+<./../static/media/VTU.png, id=11, 706.64pt x 1007.765pt>
 File: ./../static/media/VTU.png Graphic file (type png)
 <use ./../static/media/VTU.png>
 Package pdftex.def Info: ./../static/media/VTU.png  used on input line 8.
@@ -940,7 +941,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--28
  | 
  []
 
-<../static/media/RNS_logo.png, id=9, 992.20688pt x 1060.71281pt>
+<../static/media/RNS_logo.png, id=13, 992.20688pt x 1060.71281pt>
 File: ../static/media/RNS_logo.png Graphic file (type png)
 <use ../static/media/RNS_logo.png>
 Package pdftex.def Info: ../static/media/RNS_logo.png  used on input line 31.
@@ -1043,33 +1044,75 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
  [5
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 86.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 86.
- (./report.aux (./title.aux)
-(./certificate.aux) (./ack.aux) (./abstract.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 86.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 86.
+\openout2 = `./chapter1.aux'.
+
+ (./chapter1.tex
+Chapter 1.
+<../../static/xyz.jpg, id=49, 1806.75pt x 1204.5pt>
+File: ../../static/xyz.jpg Graphic file (type jpg)
+<use ../../static/xyz.jpg>
+Package pdftex.def Info: ../../static/xyz.jpg  used on input line 4.
+(pdftex.def)             Requested size: 469.74393pt x 313.16261pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.7 
+     [1
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.7 
+     <../../static/xyz.jpg>])pdfTeX warning (ext4): destination with the same i
+dentifier (name{page.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.86 \include{./chapter1}
+                          [2]
+\openout2 = `./ref.aux'.
+
+ (./ref.tex)pdfTeX warning (ext4): destination with the same identifier (name{p
+age.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.87 \include{./ref}
+                     [3
+
+
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 88.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 88.
+ (./report.aux (./title.aux) (./certificate.aux)
+(./ack.aux) (./abstract.aux) (./chapter1.aux) (./ref.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 88.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 88.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 86.
+(rerunfilecheck)             Checksum: BAFE71A6FF243C06D390A028BFD27108;38.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 88.
  ) 
 Here is how much of TeX's memory you used:
- 19188 strings out of 493610
- 354818 string characters out of 6159293
- 434036 words of memory out of 5000000
- 22960 multiletter control sequences out of 15000+600000
- 27179 words of font info for 52 fonts, out of 8000000 for 9000
+ 19228 strings out of 493610
+ 355308 string characters out of 6159293
+ 434806 words of memory out of 5000000
+ 22980 multiletter control sequences out of 15000+600000
+ 27348 words of font info for 53 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 60i,10n,54p,686b,447s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,11n,54p,731b,447s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019basic/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/lo
-cal/texlive/2019basic/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/t
-exlive/2019basic/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texli
-ve/2019basic/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/20
-19basic/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (6 pages, 1386751 bytes).
+cal/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></us
+r/local/texlive/2019basic/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/loc
+al/texlive/2019basic/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/t
+exlive/2019basic/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texliv
+e/2019basic/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on report.pdf (9 pages, 2074786 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
- 44 compressed objects within 1 object stream
- 8 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 88 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
+ 12 named destinations out of 1000 (max. 500000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
