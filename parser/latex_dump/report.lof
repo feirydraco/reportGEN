@@ -1,2 +1,18 @@
 \thispagestyle {empty}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces ConvNet.jpg}}{2}{figure.1.1}% 
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Scaling parameters of CNN.png}}{3}{figure.1.2}% 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Problem Definition.png}}{7}{figure.3.1}% 
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Layer-wise representation of CNN.png}}{8}{figure.3.2}% 
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Optimization Problem.png}}{8}{figure.3.3}% 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Compound Scaling.png}}{9}{figure.4.1}% 
+\contentsline {figure}{\numberline {4.2}{\ignorespaces EfficientNet baseline network.png}}{10}{figure.4.2}% 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Depth Scaling.png}}{12}{figure.5.1}% 
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Scaling Depth and Resolution.png}}{13}{figure.5.2}% 
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Results.png}}{14}{figure.5.3}% 
+\contentsline {figure}{\numberline {5.4}{\ignorespaces What the network can see.png}}{15}{figure.5.4}% 
 \contentsfinish 

@@ -1,1 +1,14 @@
-\chapter{TESTINGGG}
+\chapter{Literature Survey}
+\section{Deep Residual Learning for Image Recognition (2015)}
+
+Deeper neural networks are more difficult to train. The authors present a residual learning framework to ease the training of networks that are substantially deeper than those used previously. They explicitly reformulate the layers as learning residual functions with reference to the layer inputs, instead of learning unreferenced functions. Then the authors provide comprehensive empirical evidence showing that these residual networks are easier to optimize, and can gain accuracy from considerably increased depth. Hence the authors provide significant evidence showing increasing depth of the network results in higher accuracy.
+
+
+\section{Wide Residual Networks (2017)}
+
+Deeper residual networks were shown to be able to scale up to thousands of layers and still have improving performance. However, each fraction of a percent of improved accuracy costs nearly doubling the number of layers, and so training very deep residual networks has a problem of diminishing feature reuse, which makes these networks very slow to train. To tackle these problems, in this paper the authors conduct a detailed experimental study on the architecture of ResNet blocks, based on which they proposed a novel architecture where they decreased the depth and increased width of residual networks. The authors call the resulting network structures wide residual networks (WRNs) and show that these are far superior over their commonly used thin and very deep counterparts. The authors successfully demonstrate that making a network wider increases accuracy.
+
+
+\section{GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism (2016)}
+
+Scaling up deep neural network capacity has been known as an effective approach to improving model quality for several different machine learning tasks. In many cases, increasing model capacity beyond the memory limit of a single accelerator has required developing special algorithms or infrastructure. These solutions are often architecture-specific and do not transfer to other tasks. To address the need for efficient and task-independent model parallelism, the authors introduced GPipe, a pipeline parallelism library that allows scaling any network that can be expressed as a sequence of layers. By pipelining different sub-sequences of layers on separate accelerators, GPipe provides the flexibility of scaling a variety of different networks to gigantic sizes efficiently. This paper demonstrated that the number of channels of a network also affect the accuracy of the model.

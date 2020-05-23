@@ -1,34 +1,33 @@
-\chapter{Software Testing}Software testing is an investigation conducted to provide stakeholders with information about the quality of the product or service under test. Software testing can also provide an objective, independent view of the software to allow the business to appreciate and understand the risks of software implementation. Test techniques include, but are not limited to, the process of executing a program or application with the intent of finding software bugs (errors or other defects).
+\chapter{Experiments and Results}
+\section{Scaling}
 
-
-\section{Black Box Testing}
-
-Black-box testing tests functional and non-functional characteristics of the software without referring to the internal code of the software. Redesigned the UI, to make the interface aesthetically good. Testing the routes, helped making it better to make routing simpler for ease of use.
-
-
-\section{White Box Testing}
-
-The proposed application contains various different modules and integrated successfully. Testing the algorithm which retrieves URL’s and Articles, kept timing out or didn’t scrape accurately. Modifying the algorithm by looping back to new URL if one didn’t exist helped run the scraper for longer time before being kicked out by the server itself.
-
-
-\section{Unit Testing}
-
-The unit testing is the process of testing the part of the program to verify whether the program is working correct or not. In this, the idea was to test if every route worked properly. The routing was redesigned. The homepage took longer to load when the stats were calculated live on server. Storing those time to time helped the server to respond faster.
+Scaling Up a Baseline Model with Different Network Width (w), Depth (d), and Resolution (r) Coefficients. Bigger networks with larger width, depth, or resolution tend to achieve higher accuracy, but the accuracy gain quickly saturate after reaching 80%, demonstrating the limitation of single dimension scaling. Baseline network is described as described below.
 
 \begin{figure}[htpb]
 \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{../static/media/testCases.png}
-\caption{Unit Testing}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{../../static/Depth Scaling.png}
+\caption{Depth Scaling.png}
+\end{figure}Scaling Network Width for Different Baseline Networks. Each dot in a line denotes a model with different width coefficient (w). All baseline networks are from the previous table. The first baseline network (d=1.0, r=1.0) has 18 convolutional layers with resolution 224x224, while the last baseline (d=2.0, r=1.3) has 36 layers with resolution 299x299.
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{../../static/Scaling Depth and Resolution.png}
+\caption{Scaling Depth and Resolution.png}
 \end{figure}
+\section{Comparison of EffecientNet}
 
-
-\section{Integration Testing}
-
-Integration testing is also taken as integration and testing is the major testing process where the units are combined and tested. Its main objective is to verify whether the major parts of the program is working fine or not the application includes many and different constraints of functionalities and these modules are integrated and tested.
+As seen in the figure, the scaled models use upto 8.4x less parameters and a total reduction of upto 16x FLOPS is observed. The models were compared head-to-head against state of the art networks in their respective tasks.
 
 \begin{figure}[htpb]
 \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{../static/media/\centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio}
-\caption{n{figure}[htpb}
-\end{figure}[Integration Testing][itngTesting.png]
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{../../static/Results.png}
+\caption{Results.png}
+\end{figure}It is also very evident that the compound scaling method also improves CNN dependability as we can see that the CNN is now focusing on the required objects for the task in a more accurate manner. This is done by freezing the training at an intermediate step and then observing one of the layers of the CNN. This demonstrates the ability of this algorithm to also apply to transfer learning tasks with good performance. Hence we can use these modified networks in mobile devices with less computing power but with the same efficiency of the full size model.
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{../../static/What the network can see.png}
+\caption{What the network can see.png}
+\end{figure}
+\section{Limitations}
+
+It is possible to achieve even better performance by searching for alpha, beta and gamma directly around a large model, but the search cost becomes prohibitively more expensive on larger model. Hence we would require much higher computation power for doing such a task.

@@ -1,34 +1,23 @@
-\chapter{Software Testing}Software testing is an investigation conducted to provide stakeholders with information about the quality of the product or service under test. Software testing can also provide an objective, independent view of the software to allow the business to appreciate and understand the risks of software implementation. Test techniques include, but are not limited to, the process of executing a program or application with the intent of finding software bugs (errors or other defects).
+\chapter{Architecture}
+\section{Compound Scaling}
 
-
-\section{Black Box Testing}
-
-Black-box testing tests functional and non-functional characteristics of the software without referring to the internal code of the software. Redesigned the UI, to make the interface aesthetically good. Testing the routes, helped making it better to make routing simpler for ease of use.
-
-
-\section{White Box Testing}
-
-The proposed application contains various different modules and integrated successfully. Testing the algorithm which retrieves URL’s and Articles, kept timing out or didn’t scrape accurately. Modifying the algorithm by looping back to new URL if one didn’t exist helped run the scraper for longer time before being kicked out by the server itself.
-
-
-\section{Unit Testing}
-
-The unit testing is the process of testing the part of the program to verify whether the program is working correct or not. In this, the idea was to test if every route worked properly. The routing was redesigned. The homepage took longer to load when the stats were calculated live on server. Storing those time to time helped the server to respond faster.
-
+The authors proposed a simple yet very effective scaling technique which uses a compound coefficient Phi to uniformly scale network width, depth, and resolution in a principled way:
 \begin{figure}[htpb]
 \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{../static/media/testCases.png}
-\caption{Unit Testing}
-\end{figure}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{../../static/Compound Scaling.png}
+\caption{Compound Scaling.png}
+\end{figure}Phi is a user-specified coefficient that controls how many more resources are available for model scaling. In a CNN, Conv layers are the most compute expensive part of the network. Also, FLOPS of a regular convolution op is almost proportional to d, w squared, r squared, i.e. doubling the depth will double the FLOPS while doubling width or resolution increases FLOPS almost by four times. Hence, in order to make sure that the total FLOPS don’t exceed Phi squared. The constraint applied is that the product of alpha, beta and gamma squared should be nearly equal to 2.
+\section{EfficientNet Architecture}
 
-
-\section{Integration Testing}
-
-Integration testing is also taken as integration and testing is the major testing process where the units are combined and tested. Its main objective is to verify whether the major parts of the program is working fine or not the application includes many and different constraints of functionalities and these modules are integrated and tested.
-
+Scaling doesn’t change the layer operations, hence it is better to first have a good baseline network and then scale it along different dimensions using the proposed compound scaling. The authors obtained their base network by doing a Neural Architecture Search (NAS) that optimizes for both accuracy and FLOPS. The architecture is similar to M-NASNet as it has been found using the similar search space. The network layers/blocks are as shown below:
 \begin{figure}[htpb]
 \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{../static/media/\centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio}
-\caption{n{figure}[htpb}
-\end{figure}[Integration Testing][itngTesting.png]
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{../../static/EfficientNet baseline network.png}
+\caption{EfficientNet baseline network.png}
+\end{figure}Now we have the base network, we can search for optimal values for our scaling parameters. If you revisit the equation, you will quickly realize that we have a total of four parameters to search for: alpha, beta, gamma and Phi. In order to make the search space smaller and making the search operation less costly, the search for these parameters can be completed in two steps.
+
+\begin{itemize}
+\item Fix Phi as 1, assuming that twice more resources are available, and do a small grid search for alpha, beta and gamma. For baseline network B0, it turned out the optimal values are alpha as 1.2, beta as 1.1, and gamma as 1.15 such that product of alpha, beta and gamma squared is almost equal to 2.
+\item Now fix alpha, beta and gamma as constants (with values found in above step) and experiment with different values of Phi. The different values of Phi produce EfficientNets B1-B7.
+
+\end{itemize}

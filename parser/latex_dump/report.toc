@@ -1,2 +1,22 @@
 \thispagestyle {empty}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Background}{1}{section.1.1}% 
+\contentsline {section}{\numberline {1.2}Definitions}{1}{section.1.2}% 
+\contentsline {subsection}{\numberline {1.2.1}Convolutional Neural Networks (CNN)}{1}{subsection.1.2.1}% 
+\contentsline {subsection}{\numberline {1.2.2}Hyperparameters}{2}{subsection.1.2.2}% 
+\contentsline {subsection}{\numberline {1.2.3}Grid Search}{3}{subsection.1.2.3}% 
+\contentsline {subsection}{\numberline {1.2.4}Scaling}{3}{subsection.1.2.4}% 
+\contentsline {chapter}{\numberline {2}Literature Survey}{5}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Deep Residual Learning for Image Recognition (2015)}{5}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}Wide Residual Networks (2017)}{5}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism (2016)}{6}{section.2.3}% 
+\contentsline {chapter}{\numberline {3}Problem Statement}{7}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Statement}{7}{section.3.1}% 
+\contentsline {chapter}{\numberline {4}Architecture}{9}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Compound Scaling}{9}{section.4.1}% 
+\contentsline {section}{\numberline {4.2}EfficientNet Architecture}{10}{section.4.2}% 
+\contentsline {chapter}{\numberline {5}Experiments and Results}{12}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Scaling}{12}{section.5.1}% 
+\contentsline {section}{\numberline {5.2}Comparison of EffecientNet}{14}{section.5.2}% 
+\contentsline {section}{\numberline {5.3}Limitations}{15}{section.5.3}% 
 \contentsfinish 
