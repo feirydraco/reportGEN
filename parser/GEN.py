@@ -341,7 +341,7 @@ if __name__ == "__main__":
 
     report.MainContent(True)
     report.addTitle()
-    report.addCertificate()
+    report.addCertificate() 
     report.addAck()
     report.addAbstract()
     report.beginChapters()
